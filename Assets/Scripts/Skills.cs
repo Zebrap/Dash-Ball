@@ -14,6 +14,8 @@ public class Skills : MonoBehaviour
     [SerializeField]
     public Image[] showSkills;
 
+    public GameObject winPanel; 
+
     public PlayerBall player;
     private Queue<SkillsNames> skillsQueue = new Queue<SkillsNames>();
     
@@ -101,7 +103,7 @@ public class Skills : MonoBehaviour
         {
             if(collision.tag.ToString() == "Win")
             {
-                Debug.Log("You Win!");
+                winPanel.SetActive(true);
             }
             else
             {

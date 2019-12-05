@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class Menu : MonoBehaviour
 {
+    // Start is called before the first frame update
     void Start()
     {
         
     }
-    
+
+    // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void ResetLeavel()
+    public void StartLevel()
     {
         SceneManager.LoadScene("Level");
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }

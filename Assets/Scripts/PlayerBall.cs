@@ -29,7 +29,7 @@ public class PlayerBall : MonoBehaviour
 
     private void Start()
     {
-        readyText.color = Color.green;
+        StopBall();
     }
 
     private void Update()
