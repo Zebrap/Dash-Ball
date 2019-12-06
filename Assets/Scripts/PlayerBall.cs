@@ -5,13 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerBall : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public TrailRenderer tr;
     public Rigidbody2D hook;
-    public GameObject hookObject;
     public Text readyText;
-
-
+    
     public float releaseTime = .15f;
     public float maxDragDistance = 2f;
     public float activeColierRange = 0.2f;
@@ -25,20 +21,28 @@ public class PlayerBall : MonoBehaviour
     private float timeToGrab = 0.75f;
     private float timer;
     private float gravityScale = 1.0f;
-    private float timeTrailRenderer = 3.0f;
+
+    
+    private CircleCollider2D circleCol2D;
+    private SpringJoint2D springJoint2D;
+    private Rigidbody2D rb;
+    private TrailRenderer tr;
 
     private void Start()
     {
+        circleCol2D = GetComponent<CircleCollider2D>();
+        springJoint2D = GetComponent<SpringJoint2D>();
+        rb = GetComponent<Rigidbody2D>();
+        tr = GetComponent<TrailRenderer>();
         StopBall();
+
     }
 
     private void Update()
     {
         if (isMove)
         {
-          //  if ((rb.position-hook.position).normalized.magnitude <= 1.0f)
-            GetComponent<CircleCollider2D>().enabled = true;
-
+            circleCol2D.enabled = true;
             EnableGrab();
         }
         else if (isPressed)
@@ -81,29 +85,15 @@ public class PlayerBall : MonoBehaviour
 
     IEnumerator Release()
     {
-        GetComponent<CircleCollider2D>().enabled = false;
+        circleCol2D.enabled = false;
         yield return new WaitForSeconds(releaseTime);
 
-        GetComponent<SpringJoint2D>().enabled = false;
-
+        springJoint2D.enabled = false;
         // this.enabled = false;
         isMove = true;
         timer = timeToGrab;
         readyText.color = Color.black;
         
-
-        /*    yield return new WaitForSeconds(2f);
-
-            if (nextBall != null)
-            {
-                nextBall.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("YOU LOST");
-                Enemy.EnemiesAlive = 0;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }*/
     }
 
     private void EnableGrab()
@@ -141,7 +131,7 @@ public class PlayerBall : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
         hook.transform.position = transform.position;
-        GetComponent<SpringJoint2D>().enabled = true;
+        springJoint2D.enabled = true;
         readyText.color = Color.green;
    //     tr.enabled = false;
         isMove = false;
