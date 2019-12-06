@@ -5,6 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { set; get; }
+
+    public int currentLevel = 0;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+  //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        Instance = this;
+    }
+
     void Start()
     {
         
@@ -13,15 +24,5 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void ResetLeavel()
-    {
-        SceneManager.LoadScene("Level");
-    }
-
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene("Menu");
     }
 }
