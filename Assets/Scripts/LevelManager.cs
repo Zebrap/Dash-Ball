@@ -5,14 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+
     private void Start()
     {
-
-        // load up the level
-        SceneManager.LoadScene(GameManager.Instance.currentLevel.ToString(), LoadSceneMode.Additive);
+        LoadScene();
     }
 
-
+    public void LoadScene()
+    {
+        string levelName = GameManager.Instance.currentLevel.ToString();
+        if (GameManager.Instance.scenesInBuild.Contains(levelName)){
+            SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
+        }
+        else
+        {
+            Debug.LogWarning("Load Scene Failed. " + levelName + " not found.");
+            BackToMenu();
+        }
+    }
+    
+    public void NextLevel()
+    {
+        GameManager.Instance.currentLevel++;
+        ResetLeavel();
+    }
 
     public void ResetLeavel()
     {
