@@ -126,7 +126,7 @@ public class PlayerBall : MonoBehaviour
         rb.gravityScale = 0.05f;
     }
 
-    private void StopBall()
+    public void StopBall()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;

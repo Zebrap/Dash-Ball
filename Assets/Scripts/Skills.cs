@@ -14,7 +14,8 @@ public class Skills : MonoBehaviour
     [SerializeField]
     public Image[] showSkills;
 
-    public GameObject winPanel; 
+    public GameObject winPanel;
+    public GameObject losePanel;
 
     public PlayerBall player;
     private Queue<SkillsNames> skillsQueue = new Queue<SkillsNames>();
@@ -27,7 +28,12 @@ public class Skills : MonoBehaviour
     
     void Update()
     {
-        
+
+        if (player.transform.position.y < -10)
+        {
+            player.gameObject.SetActive(false);
+            losePanel.SetActive(true);
+        }
     }
     public void addSkills()
     {
@@ -104,6 +110,7 @@ public class Skills : MonoBehaviour
             if(collision.tag.ToString() == "Win")
             {
                 winPanel.SetActive(true);
+                player.StopBall();
             }
             else
             {
