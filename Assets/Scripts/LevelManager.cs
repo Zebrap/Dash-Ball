@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.currentLevel = 0;
             Debug.LogWarning("Load Scene Failed. " + levelName + " not found.");
             BackToMenu();
         }

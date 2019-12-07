@@ -18,7 +18,7 @@ TagManager:
   - 
   - 
   - BackGround
-  - 
+  - Front
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 1069717781
     locked: 0
