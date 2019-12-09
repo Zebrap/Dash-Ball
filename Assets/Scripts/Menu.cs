@@ -8,6 +8,9 @@ public class Menu : MonoBehaviour
     public Button selectLevelButton;
     public GameObject levelContainer;
 
+    public GameObject mainMenu;
+    public GameObject levelMenu;
+
     void Start()
     {
         InitLevels();
@@ -36,6 +39,10 @@ public class Menu : MonoBehaviour
             button.GetComponentInChildren<Text>().GetComponentInChildren<Text>().text = name;
             button.onClick.AddListener(() => StartLevel(index));
             button.transform.SetParent(levelContainer.transform);
+            if(GameManager.Instance.state.levelReached < index)
+            {
+                button.interactable = false;
+            }
             levelIndex++;
         }
         // ToDo ?
@@ -49,8 +56,17 @@ public class Menu : MonoBehaviour
             return i;
         }
         */
-
     }
 
+    public void ShowMenuLevel()
+    {
+        mainMenu.SetActive(false);
+        levelMenu.SetActive(true);
+    }
    
+    public void ShowMainMenu()
+    {
+        levelMenu.SetActive(false);
+        mainMenu.SetActive(true);
+    }
 }

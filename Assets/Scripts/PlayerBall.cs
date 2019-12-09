@@ -123,7 +123,7 @@ public class PlayerBall : MonoBehaviour
 
     public void Wind()
     {
-        rb.gravityScale = 0.05f;
+        rb.gravityScale = 0.3f;
     }
 
     public void StopBall()
