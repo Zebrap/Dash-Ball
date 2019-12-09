@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public void LoadScene()
     {
         string levelName = GameManager.Instance.currentLevel.ToString();
+    //    Debug.Log("Load: " + levelName);
         if (GameManager.Instance.scenesInBuild.Contains(levelName)){
             SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
         }
@@ -26,6 +27,7 @@ public class LevelManager : MonoBehaviour
             Debug.LogWarning("Load Scene Failed. " + levelName + " not found.");
             BackToMenu();
         }
+        GameManager.Instance.FadeInScane();
     }
     
     public void NextLevel()
@@ -37,7 +39,8 @@ public class LevelManager : MonoBehaviour
     public void ResetLeavel()
     {
         ChangeTimeScale(baseTimeScale);
-        SceneManager.LoadScene("Level");
+        GameManager.Instance.FadeToScane();
+    //    SceneManager.LoadScene("Level");
     }
 
     public void BackToMenu()

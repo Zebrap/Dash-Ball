@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
     public List<string> scenesInBuild { get; set; }
     public PlayerData state = new PlayerData();
+    public Animator aniamtor;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         if (SaveGame.Exists("PlayerData"))
         {
             state = SaveGame.Load<PlayerData>("PlayerData");
-            Debug.Log("Staty: " + state.ToString());
+  //          Debug.Log("Staty: " + state.ToString());
         }
         //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //     Instance = this;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel = 0;
         scenesInBuild = new List<string>();
-        for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+            for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
             int lastSlash = scenePath.LastIndexOf("/");
@@ -48,5 +49,26 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    public void FadeToNextScane()
+    {
+
+    }
+    public void FadeInScane()
+    {
+        aniamtor.SetTrigger("FadeIn");
+    }
+
+    public void FadeToScane()
+    {
+        aniamtor.SetTrigger("FadeOut");
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene("Level");
+
     }
 }
