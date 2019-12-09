@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using BayatGames.SaveGameFree;
 
 public class Skills : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class Skills : MonoBehaviour
 
     public PlayerBall player;
     private Queue<SkillsNames> skillsQueue = new Queue<SkillsNames>();
-    
 
+    
     void Start()
     {
 
@@ -109,6 +110,11 @@ public class Skills : MonoBehaviour
         {
             if(collision.tag.ToString() == "Win")
             {
+                 if(GameManager.Instance.currentLevel == GameManager.Instance.state.levelReached)
+                    {
+                        GameManager.Instance.state.levelReached++;
+                        SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
+                    }
                 winPanel.SetActive(true);
                 player.StopBall();
             }

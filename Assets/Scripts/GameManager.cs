@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using BayatGames.SaveGameFree;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int currentLevel;
     public List<string> scenesInBuild { get; set; }
+    public PlayerData state = new PlayerData();
 
     private void Awake()
     {
@@ -20,8 +22,14 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-  //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
-   //     Instance = this;
+      //  SaveGame.Clear();
+        if (SaveGame.Exists("PlayerData"))
+        {
+            state = SaveGame.Load<PlayerData>("PlayerData");
+            Debug.Log("Staty: " + state.ToString());
+        }
+        //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        //     Instance = this;
     }
     
 

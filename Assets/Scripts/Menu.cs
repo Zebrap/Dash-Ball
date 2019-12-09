@@ -1,17 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Button[] levelButtons;
+
     void Start()
     {
-        
-    }
 
-    // Update is called once per frame
+        for(int i=0; i< levelButtons.Length; i++)
+        {
+            if(i <= GameManager.Instance.state.levelReached)
+            {
+                levelButtons[i].interactable = true;
+            }
+            else
+            {
+                levelButtons[i].interactable = false;
+            }
+        }
+    }
+    
     void Update()
     {
         
