@@ -72,7 +72,7 @@ public class PlayerBall : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!isMove)
+        if (!isMove && isPressed)
         {
             rb.gravityScale = gravityScale;
             isPressed = false;

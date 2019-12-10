@@ -23,7 +23,6 @@ public class Menu : MonoBehaviour
 
     public void StartLevel(int scane)
     {
-        Debug.Log(scane);
         GameManager.Instance.currentLevel = scane;
         GameManager.Instance.FadeToScane();
     }

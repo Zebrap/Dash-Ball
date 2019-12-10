@@ -50,11 +50,11 @@ public class Skills : MonoBehaviour
             {
                 case SkillsNames.Freeze:
                     showSkills[skillsQueue.Count-1].GetComponent<Image>().sprite = skillSprites[0];
-                    Debug.Log("add to stack: "+SkillsNames.Freeze);
+                //    Debug.Log("add to stack: "+SkillsNames.Freeze);
                     break;
                 case SkillsNames.Wind:
                     showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[1];
-                    Debug.Log("add to stack: " + SkillsNames.Wind);
+                //    Debug.Log("add to stack: " + SkillsNames.Wind);
                     break;
                 default:
                     Debug.Log("No skill");

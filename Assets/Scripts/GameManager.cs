@@ -31,14 +31,10 @@ public class GameManager : MonoBehaviour
         }
         //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //     Instance = this;
-    }
-    
-
-    void Start()
-    {
         currentLevel = 0;
         scenesInBuild = new List<string>();
-            for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
+        
+        for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
             int lastSlash = scenePath.LastIndexOf("/");
@@ -46,6 +42,12 @@ public class GameManager : MonoBehaviour
         }
     }
     
+
+    void Start()
+    {
+
+    }
+
     void Update()
     {
         
