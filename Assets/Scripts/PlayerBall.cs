@@ -21,6 +21,7 @@ public class PlayerBall : MonoBehaviour
     private float timeToGrab = 0.75f;
     private float timer;
     private float gravityScale = 1.0f;
+    private float ballMass;
 
     
     private CircleCollider2D circleCol2D;
@@ -28,14 +29,20 @@ public class PlayerBall : MonoBehaviour
     private Rigidbody2D rb;
     private TrailRenderer tr;
 
-    private void Start()
+    private void Awake()
     {
+
         circleCol2D = GetComponent<CircleCollider2D>();
         springJoint2D = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
-        StopBall();
+        ballMass = rb.mass;
+    }
 
+    private void Start()
+    {
+
+        StopBall();
     }
 
     private void Update()
@@ -126,8 +133,14 @@ public class PlayerBall : MonoBehaviour
         rb.gravityScale = 0.3f;
     }
 
+    public void Stone()
+    {
+        rb.mass = rb.mass * 20;
+    }
+
     public void StopBall()
     {
+        rb.mass = ballMass;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
         hook.transform.position = transform.position;

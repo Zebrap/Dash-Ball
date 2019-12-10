@@ -49,12 +49,15 @@ public class Skills : MonoBehaviour
             switch (skillname)
             {
                 case SkillsNames.Freeze:
-                    showSkills[skillsQueue.Count-1].GetComponent<Image>().sprite = skillSprites[0];
+                    AddSpriteSkill(0);
                 //    Debug.Log("add to stack: "+SkillsNames.Freeze);
                     break;
                 case SkillsNames.Wind:
-                    showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[1];
+                    AddSpriteSkill(1);
                 //    Debug.Log("add to stack: " + SkillsNames.Wind);
+                    break;
+                case SkillsNames.Stone:
+                    AddSpriteSkill(2);
                     break;
                 default:
                     Debug.Log("No skill");
@@ -75,12 +78,16 @@ public class Skills : MonoBehaviour
             {
                 case SkillsNames.Freeze:
                     player.Freez();
-                    Debug.Log(SkillsNames.Freeze);
+                //    Debug.Log(SkillsNames.Freeze);
                     changeSpriteAfterUse();
                     break;
                 case SkillsNames.Wind:
                     player.Wind();
-                    Debug.Log(SkillsNames.Wind);
+               //     Debug.Log(SkillsNames.Wind);
+                    changeSpriteAfterUse();
+                    break;
+                case SkillsNames.Stone:
+                    player.Stone();
                     changeSpriteAfterUse();
                     break;
                 default:
@@ -120,11 +127,23 @@ public class Skills : MonoBehaviour
             }
             else
             {
-                SkillsNames tag = (SkillsNames)Enum.Parse(typeof(SkillsNames), collision.tag);
-                addSkill(tag);
+                if(Enum.TryParse(collision.tag, out SkillsNames result))
+                {
+                  //  SkillsNames tag = (SkillsNames)Enum.Parse(typeof(SkillsNames), collision.tag);
+                    addSkill(result);
+                }
+                else
+                {
+                    Debug.Log("Not enum tag: " + collision.tag);
+                }
             }
             
         }
       
+    }
+
+    private void AddSpriteSkill(int skillSpriteNumber)
+    {
+        showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[skillSpriteNumber];
     }
 }
