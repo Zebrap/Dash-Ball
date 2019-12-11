@@ -9,6 +9,7 @@ TagManager:
   - Wind
   - Win
   - Stone
+  - Banana
   layers:
   - Default
   - TransparentFX
