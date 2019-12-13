@@ -14,6 +14,14 @@ public class LevelManager : MonoBehaviour
         LoadScene();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            BackToMenu();
+        }
+    }
+
     public void LoadScene()
     {
         string levelName = GameManager.Instance.currentLevel.ToString();

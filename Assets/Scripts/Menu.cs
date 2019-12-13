@@ -18,7 +18,8 @@ public class Menu : MonoBehaviour
     
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void StartLevel(int scane)
