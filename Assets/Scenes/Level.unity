@@ -5382,6 +5382,11 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689823, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
 --- !u!1001 &4220962192581921710

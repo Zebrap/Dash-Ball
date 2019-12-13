@@ -78,10 +78,17 @@ public class PlayerBall : MonoBehaviour
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began && !isPressed && !drag)
             {
-                rb.isKinematic = true;
-                isPressed = true;
-                drag = true;
-                dragBall();
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint((Input.GetTouch(0).position)), Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.name == "Player")
+                    {
+                        rb.isKinematic = true;
+                        isPressed = true;
+                        drag = true;
+                        dragBall();
+                    }
+                }
             }
             else if (isPressed)
             {
