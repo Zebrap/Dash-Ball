@@ -72,34 +72,40 @@ public class Skills : MonoBehaviour
     
     public void useSkill()
     {
-        if (skillsQueue.Count > 0)
+        if (!player.isPressed)
         {
-            switch (skillsQueue.Dequeue())
+            if (skillsQueue.Count > 0)
             {
-                case SkillsNames.Freeze:
-                    player.Freez();
-                //    Debug.Log(SkillsNames.Freeze);
-                    changeSpriteAfterUse();
-                    break;
-                case SkillsNames.Wind:
-                    player.Wind();
-               //     Debug.Log(SkillsNames.Wind);
-                    changeSpriteAfterUse();
-                    break;
-                case SkillsNames.Stone:
-                    player.Stone();
-                    changeSpriteAfterUse();
-                    break;
-                default:
-                    Debug.Log("No skill");
-                    break;
+                switch (skillsQueue.Dequeue())
+                {
+                    case SkillsNames.Freeze:
+                        player.Freez();
+                        //    Debug.Log(SkillsNames.Freeze);
+                        changeSpriteAfterUse();
+                        break;
+                    case SkillsNames.Wind:
+                        player.Wind();
+                        //     Debug.Log(SkillsNames.Wind);
+                        changeSpriteAfterUse();
+                        break;
+                    case SkillsNames.Stone:
+                        player.Stone();
+                        changeSpriteAfterUse();
+                        break;
+                    default:
+                        Debug.Log("No skill");
+                        break;
+                }
+            }
+            else
+            {
+                Debug.Log("No skill stack");
             }
         }
         else
         {
-            Debug.Log("No skill stack");
+            Debug.Log("You can't use the skill while dragging");
         }
-        
     }
 
     void changeSpriteAfterUse()

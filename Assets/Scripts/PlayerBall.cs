@@ -52,7 +52,11 @@ public class PlayerBall : MonoBehaviour
             circleCol2D.enabled = true;
             EnableGrab();
         }
-        else if (isPressed)
+        else{
+            PlayerInput();
+        }
+
+        /*else if (isPressed)
         {
             pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (Vector3.Distance(pos, hook.position) > maxDragDistance)
@@ -63,10 +67,47 @@ public class PlayerBall : MonoBehaviour
             {
                 rb.position = pos;
             }
-        }
+        }*/
         
     }
 
+    private void PlayerInput()
+    {
+        if(Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                rb.isKinematic = true;
+                isPressed = true;
+            }
+            if (isPressed)
+            {
+                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                {
+                    pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+                    if (Vector3.Distance(pos, hook.position) > maxDragDistance)
+                    {
+                        rb.position = hook.position + (pos - hook.position).normalized * maxDragDistance;
+                    }
+                    else
+                    {
+                        rb.position = pos;
+                    }
+                }
+                else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                {
+                    rb.gravityScale = gravityScale;
+                    isPressed = false;
+                    rb.isKinematic = false;
+                    tr.enabled = true;
+
+                    StartCoroutine(Release());
+                }
+            }
+        }
+        
+    }
+    /*
     private void OnMouseDown()
     {
         if (!isMove)
@@ -88,7 +129,7 @@ public class PlayerBall : MonoBehaviour
 
             StartCoroutine(Release());
         }
-    }
+    }*/
 
     IEnumerator Release()
     {
