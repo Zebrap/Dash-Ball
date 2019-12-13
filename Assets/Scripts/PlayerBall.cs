@@ -22,7 +22,7 @@ public class PlayerBall : MonoBehaviour
     private float timer;
     private float gravityScale = 1.0f;
     private float ballMass;
-    private bool drag = false;
+    public bool drag = false;
 
     
     public CircleCollider2D circleCol2D;

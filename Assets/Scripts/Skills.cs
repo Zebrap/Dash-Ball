@@ -30,7 +30,7 @@ public class Skills : MonoBehaviour
     void Update()
     {
 
-        if (player.transform.position.y < -10)
+        if (player.transform.position.y < -10 && !player.drag)
         {
             player.gameObject.SetActive(false);
             losePanel.SetActive(true);
