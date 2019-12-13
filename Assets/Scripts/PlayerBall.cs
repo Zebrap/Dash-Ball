@@ -22,6 +22,7 @@ public class PlayerBall : MonoBehaviour
     private float timer;
     private float gravityScale = 1.0f;
     private float ballMass;
+    private bool drag = false;
 
     
     public CircleCollider2D circleCol2D;
@@ -75,24 +76,18 @@ public class PlayerBall : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if (Input.GetTouch(0).phase == TouchPhase.Began && !isPressed && !drag)
             {
                 rb.isKinematic = true;
                 isPressed = true;
+                drag = true;
+                dragBall();
             }
-            if (isPressed)
+            else if (isPressed)
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
-                    pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-                    if (Vector3.Distance(pos, hook.position) > maxDragDistance)
-                    {
-                        rb.position = hook.position + (pos - hook.position).normalized * maxDragDistance;
-                    }
-                    else
-                    {
-                        rb.position = pos;
-                    }
+                    dragBall();
                 }
                 else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
@@ -106,6 +101,19 @@ public class PlayerBall : MonoBehaviour
             }
         }
         
+    }
+
+    private void dragBall()
+    {
+        pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        if (Vector3.Distance(pos, hook.position) > maxDragDistance)
+        {
+            rb.position = hook.position + (pos - hook.position).normalized * maxDragDistance;
+        }
+        else
+        {
+            rb.position = pos;
+        }
     }
     /*
     private void OnMouseDown()
@@ -139,6 +147,7 @@ public class PlayerBall : MonoBehaviour
         springJoint2D.enabled = false;
         // this.enabled = false;
         isMove = true;
+        drag = false;
         timer = timeToGrab;
         readyText.color = Color.black;
         
