@@ -24,7 +24,7 @@ public class PlayerBall : MonoBehaviour
     private float ballMass;
 
     
-    private CircleCollider2D circleCol2D;
+    public CircleCollider2D circleCol2D;
     private SpringJoint2D springJoint2D;
     private Rigidbody2D rb;
     private TrailRenderer tr;

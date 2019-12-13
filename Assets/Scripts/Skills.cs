@@ -72,7 +72,7 @@ public class Skills : MonoBehaviour
     
     public void useSkill()
     {
-        if (!player.isPressed)
+        if (!player.isPressed && player.circleCol2D.enabled)
         {
             if (skillsQueue.Count > 0)
             {
