@@ -23,7 +23,6 @@ public class PlayerBall : MonoBehaviour
     private float gravityScale = 1.0f;
     private float ballMass;
     public bool drag = false;
-
     
     public CircleCollider2D circleCol2D;
     private SpringJoint2D springJoint2D;
@@ -194,6 +193,11 @@ public class PlayerBall : MonoBehaviour
     {
         rb.mass = rb.mass * 20;
     }
+    /*
+    public void Bounce()
+    {
+        rb.sharedMaterial.bounciness = 0.5f;
+    }*/
 
     public void StopBall()
     {

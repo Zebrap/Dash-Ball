@@ -5347,6 +5347,11 @@ PrefabInstance:
       propertyPath: readyText
       value: 
       objectReference: {fileID: 887314794}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: physicMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 32e3aa5a834a4224ba4507bc1a89dd2a, type: 2}
     - target: {fileID: 693329019811689812, guid: 85a88d700df17164f84a813f57764ec5,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -5366,6 +5371,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689808, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 693329019811689823, guid: 85a88d700df17164f84a813f57764ec5,
         type: 3}
@@ -5387,6 +5397,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689823, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 32e3aa5a834a4224ba4507bc1a89dd2a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
 --- !u!1001 &4220962192581921710
