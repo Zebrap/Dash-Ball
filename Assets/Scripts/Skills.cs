@@ -21,7 +21,9 @@ public class Skills : MonoBehaviour
     public PlayerBall player;
     private Queue<SkillsNames> skillsQueue = new Queue<SkillsNames>();
 
-    
+    private Reward rewardsLevel;
+
+
     void Start()
     {
 
@@ -32,8 +34,7 @@ public class Skills : MonoBehaviour
 
         if (player.transform.position.y < -10 && !player.drag)
         {
-            player.gameObject.SetActive(false);
-            losePanel.SetActive(true);
+            lose();
         }
     }
     public void addSkills()
@@ -123,13 +124,7 @@ public class Skills : MonoBehaviour
         {
             if(collision.tag.ToString() == "Win")
             {
-                 if(GameManager.Instance.currentLevel == GameManager.Instance.state.levelReached)
-                    {
-                        GameManager.Instance.state.levelReached++;
-                        SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
-                    }
-                winPanel.SetActive(true);
-                player.StopBall();
+                win();
             }
             else
             {
@@ -152,4 +147,41 @@ public class Skills : MonoBehaviour
     {
         showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[skillSpriteNumber];
     }
+
+    private void win()
+    {
+        int currentLevel = GameManager.Instance.currentLevel;
+        /*
+        try
+        {
+            rewardsLevel = GameObject.Find("RewardManager").GetComponent<Reward>();
+            if(GameManager.Instance.state.score.Count < currentLevel)
+            {
+                GameManager.Instance.state.score.Add(0);
+            }
+            else
+            {
+                GameManager.Instance.state.score[currentLevel] = 0;
+            }
+        }
+        catch(NullReferenceException e)
+        {
+            Debug.LogWarning("No rewards for this level: "+e);
+        }*/
+
+        if (currentLevel == GameManager.Instance.state.levelReached)
+        {
+            GameManager.Instance.state.levelReached++;
+            SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
+        }
+        winPanel.SetActive(true);
+        player.StopBall();
+    }
+
+    private void lose()
+    {
+        player.gameObject.SetActive(false);
+        losePanel.SetActive(true);
+    }
+
 }

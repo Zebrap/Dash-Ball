@@ -29,19 +29,22 @@ public class PlayerBall : MonoBehaviour
     private Rigidbody2D rb;
     private TrailRenderer tr;
 
+    public int throwCounter;
+    public Text throwText;
+
     private void Awake()
     {
-
         circleCol2D = GetComponent<CircleCollider2D>();
         springJoint2D = GetComponent<SpringJoint2D>();
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
         ballMass = rb.mass;
+        throwCounter = 0;
     }
 
     private void Start()
     {
-
+        changeThrowText();
         StopBall();
     }
 
@@ -97,10 +100,12 @@ public class PlayerBall : MonoBehaviour
                 }
                 else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
+                    throwCounter++;
                     rb.gravityScale = gravityScale;
                     isPressed = false;
                     rb.isKinematic = false;
                     tr.enabled = true;
+                    changeThrowText();
 
                     StartCoroutine(Release());
                 }
@@ -209,6 +214,12 @@ public class PlayerBall : MonoBehaviour
         readyText.color = Color.green;
    //     tr.enabled = false;
         isMove = false;
+    }
+
+
+    private void changeThrowText()
+    {
+        throwText.text = throwCounter.ToString();
     }
 
 }
