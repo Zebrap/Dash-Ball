@@ -31,9 +31,15 @@ public class GameManager : MonoBehaviour
         }
         //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //     Instance = this;
+
+        // Init score list
+        while(state.score.Count < state.levelReached)
+        {
+            state.score.Add(0);
+        }
+
         currentLevel = 0;
         scenesInBuild = new List<string>();
-        
         for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);

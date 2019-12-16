@@ -22,11 +22,11 @@ public class Skills : MonoBehaviour
     private Queue<SkillsNames> skillsQueue = new Queue<SkillsNames>();
 
     private Reward rewardsLevel;
-
+    private bool stateChange;
 
     void Start()
     {
-
+        stateChange = false;
     }
     
     void Update()
@@ -169,11 +169,38 @@ public class Skills : MonoBehaviour
             Debug.LogWarning("No rewards for this level: "+e);
         }*/
 
+        // Score calc
+        rewardsLevel = GameObject.Find("RewardManager").GetComponent<Reward>();
+        if(player.throwCounter <= rewardsLevel.topTime)
+        {
+            AddScore(currentLevel,3);
+        }
+        else if(player.throwCounter <= rewardsLevel.midTime)
+        {
+            AddScore(currentLevel, 2);
+
+        }
+        else if(player.throwCounter <= rewardsLevel.lowTime)
+        {
+            AddScore(currentLevel, 1);
+        }
+        else
+        {
+            AddScore(currentLevel, 0);
+        }
+
+        // ToDo drop levelReached in future - change to state.score.Count
         if (currentLevel == GameManager.Instance.state.levelReached)
         {
             GameManager.Instance.state.levelReached++;
+            stateChange = true;
+        }
+        // save data
+        if (stateChange)
+        {
             SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
         }
+
         winPanel.SetActive(true);
         player.StopBall();
     }
@@ -184,4 +211,27 @@ public class Skills : MonoBehaviour
         losePanel.SetActive(true);
     }
 
+    private void AddScore(int currentLevel, int stars)
+    {
+        int currentStars = 0;
+        if (currentLevel == GameManager.Instance.state.levelReached)
+        {
+            GameManager.Instance.state.score.Add(stars);
+        }
+        else
+        {
+            currentStars = GameManager.Instance.state.score[currentLevel];
+            if(currentStars < stars)
+            {
+                GameManager.Instance.state.score[currentLevel] = stars;
+            }
+        }
+        int differentScore = GameManager.Instance.state.score[currentLevel] - currentStars;
+        if (differentScore > 0)
+        {
+            GameManager.Instance.state.cash += differentScore;
+            stateChange = true;
+        }
+        // Add cash
+    }
 }

@@ -11,9 +11,14 @@ public class Menu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject levelMenu;
 
+    public Text CashText;
+    public Sprite blankStar;
+    public Sprite fullStar;
+
     void Start()
     {
         InitLevels();
+        initChash();
     }
     
     void Update()
@@ -37,11 +42,21 @@ public class Menu : MonoBehaviour
             int index = levelIndex;
             Button button = Instantiate(selectLevelButton) as Button;
             button.GetComponentInChildren<Text>().GetComponentInChildren<Text>().text = name;
+       //     GameManager.Instance.state.score[index]
             button.onClick.AddListener(() => StartLevel(index));
             button.transform.SetParent(levelContainer.transform);
+            // not enable
             if(GameManager.Instance.state.levelReached < index)
             {
                 button.interactable = false;
+            }
+            else
+            {
+                // complate level, add stars
+                for (int i = 0; i < GameManager.Instance.state.score[index]; i++)
+                {
+                    button.transform.GetChild(1).GetChild(i).GetComponent<Image>().sprite = fullStar;
+                }
             }
             levelIndex++;
         }
@@ -56,6 +71,11 @@ public class Menu : MonoBehaviour
             return i;
         }
         */
+    }
+
+    private void initChash()
+    {
+        CashText.text = "Gold: " + GameManager.Instance.state.cash;
     }
 
     public void ShowMenuLevel()
