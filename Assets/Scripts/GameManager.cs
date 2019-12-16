@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
         {
             state.score.Add(0);
         }
-
         currentLevel = 0;
         scenesInBuild = new List<string>();
         for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)

@@ -12,13 +12,12 @@ public class Menu : MonoBehaviour
     public GameObject levelMenu;
 
     public Text CashText;
-    public Sprite blankStar;
     public Sprite fullStar;
 
     void Start()
     {
         InitLevels();
-        initChash();
+        InitCash();
     }
     
     void Update()
@@ -46,11 +45,11 @@ public class Menu : MonoBehaviour
             button.onClick.AddListener(() => StartLevel(index));
             button.transform.SetParent(levelContainer.transform);
             // not enable
-            if(GameManager.Instance.state.levelReached < index)
+            if (GameManager.Instance.state.levelReached < index)
             {
                 button.interactable = false;
             }
-            else
+            else if(GameManager.Instance.state.score.Count > index)
             {
                 // complate level, add stars
                 for (int i = 0; i < GameManager.Instance.state.score[index]; i++)
@@ -73,7 +72,7 @@ public class Menu : MonoBehaviour
         */
     }
 
-    private void initChash()
+    private void InitCash()
     {
         CashText.text = "Gold: " + GameManager.Instance.state.cash;
     }

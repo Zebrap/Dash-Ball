@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 7505424310196206580, guid: 07a3bcfa10c8efe4fab7ee6189d3243c,
         type: 3}
       propertyPath: midTime
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7505424310196206580, guid: 07a3bcfa10c8efe4fab7ee6189d3243c,
         type: 3}

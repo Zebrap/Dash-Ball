@@ -1325,7 +1325,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -40, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1054979816
 MonoBehaviour:
@@ -1353,7 +1353,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1584,7 +1584,6 @@ MonoBehaviour:
   mainMenu: {fileID: 1356067357}
   levelMenu: {fileID: 1044999605}
   CashText: {fileID: 648404795}
-  blankStar: {fileID: 82707731993968007, guid: 9abf0e72fc1c118418c3c0156d878779, type: 3}
   fullStar: {fileID: 8586885197115800619, guid: 9abf0e72fc1c118418c3c0156d878779,
     type: 3}
 --- !u!4 &1296957826
@@ -1599,7 +1598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356067357
 GameObject:
@@ -1883,7 +1882,7 @@ PrefabInstance:
     - target: {fileID: 3845671218287962039, guid: bd466c3347c9efa44a30812bb4dc6f9e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3845671218287962039, guid: bd466c3347c9efa44a30812bb4dc6f9e,
         type: 3}
