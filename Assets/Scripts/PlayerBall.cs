@@ -18,7 +18,7 @@ public class PlayerBall : MonoBehaviour
     private Vector3 velocity;
     public static bool isMove { get; set; } = false;
     private float speedToGrab = 0.15f;
-    private float timeToGrab = 0.75f;
+    private float timeToGrab = 0.35f;
     private float timer;
     private float gravityScale = 1.0f;
     private float ballMass;

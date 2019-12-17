@@ -35,7 +35,7 @@ public class Skills : MonoBehaviour
     void Update()
     {
 
-        if (player.transform.position.y < -10 && !player.drag)
+        if (player.transform.position.y < -7 && !player.drag)
         {
             lose();
         }
