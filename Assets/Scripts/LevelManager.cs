@@ -21,15 +21,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        try
-        {
-            targetPos = GameObject.Find("Win").transform.position;
-     //       Debug.Log(targetPos.ToString());
-        }
-        catch (NullReferenceException e)
-        {
-            Debug.LogWarning("'Win' obecjt does not exist: "+e);
-        }
     }
 
     private void Update()
@@ -40,38 +31,7 @@ public class LevelManager : MonoBehaviour
         }
 
     }
-
-  /*  private void Pointer()
-    {
-        // 1
-        Vector3 dir = Camera.main.transform.InverseTransformPoint(targetPos);
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        angle += 180;
-        pointerArrow.transform.localEulerAngles = new Vector3(0, 0, angle);
-
-        // 2
-        Vector3 dir = (targetPos - Camera.main.transform.position).normalized;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        angle += 180;
-        pointerArrow.transform.localEulerAngles = new Vector3(0, 0, angle);
-
-        float borderSize = 20f;
-        Vector3 targetPostionScreenPoint = Camera.main.WorldToScreenPoint(targetPos);
-        bool isOffScreen = targetPostionScreenPoint.x <= borderSize || targetPostionScreenPoint.x >= Screen.width - borderSize || targetPostionScreenPoint.y < borderSize || targetPostionScreenPoint.y >= Screen.height - borderSize;
-        if (isOffScreen)
-        {
-            Vector3 capTagetScreenPos = targetPostionScreenPoint;
-            if (capTagetScreenPos.x <= 0) capTagetScreenPos.x = 0f;
-            if (capTagetScreenPos.x >= Screen.width) capTagetScreenPos.x = Screen.width;
-            if (capTagetScreenPos.y <= 0) capTagetScreenPos.y = 0f;
-            if (capTagetScreenPos.y >= Screen.height) capTagetScreenPos.y = Screen.height;
-
-            Vector3 pointerWorldPos = Camera.main.ScreenToWorldPoint(capTagetScreenPos);
-            pointerArrow.position = pointerWorldPos;
-            pointerArrow.localPosition = new Vector3(pointerArrow.localPosition.x, pointerArrow.localPosition.y, 0f);
-        }
-    }
-*/
+    
     public void LoadScene()
     {
         string levelName = GameManager.Instance.currentLevel.ToString();
