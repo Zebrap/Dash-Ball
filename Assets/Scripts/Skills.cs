@@ -63,6 +63,9 @@ public class Skills : MonoBehaviour
                 case SkillsNames.Stone:
                     AddSpriteSkill(2);
                     break;
+                case SkillsNames.Fly:
+                    AddSpriteSkill(3);
+                    break;
                 default:
                     Debug.Log("No skill");
                     break;
@@ -94,6 +97,10 @@ public class Skills : MonoBehaviour
                         break;
                     case SkillsNames.Stone:
                         player.Stone();
+                        changeSpriteAfterUse();
+                        break;
+                    case SkillsNames.Fly:
+                        player.Fly();
                         changeSpriteAfterUse();
                         break;
                     default:

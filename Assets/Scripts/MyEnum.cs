@@ -7,5 +7,6 @@ public enum SkillsNames
     Freeze,
     Wind,
     Stone,
+    Fly,
     Power
 }

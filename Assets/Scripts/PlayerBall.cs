@@ -37,6 +37,9 @@ public class PlayerBall : MonoBehaviour
     private float windGravScale = 0.3f;
     private float stoneMass = 20.0f;
 
+    private float flyGrav = -0.1f;
+    private float flyTimer = 2.0f;
+
     private void Awake()
     {
         circleCol2D = GetComponent<CircleCollider2D>();
@@ -203,6 +206,21 @@ public class PlayerBall : MonoBehaviour
     {
         rb.mass = rb.mass * stoneMass;
     }
+
+    public void Fly()
+    {
+        rb.gravityScale = flyGrav;
+        StartCoroutine(FlyTimer());
+    }
+
+    IEnumerator FlyTimer()
+    {
+        yield return new WaitForSeconds(flyTimer);
+        if (isMove && rb.gravityScale==flyGrav)
+        {
+            rb.gravityScale = gravityScale;
+        }
+    }
     /*
     public void Bounce()
     {
@@ -214,6 +232,7 @@ public class PlayerBall : MonoBehaviour
         rb.mass = ballMass;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
+        rb.gravityScale = 0.0f;
         hook.transform.position = transform.position;
         springJoint2D.enabled = true;
         readyText.color = Color.green;

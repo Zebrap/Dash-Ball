@@ -10,6 +10,7 @@ TagManager:
   - Win
   - Stone
   - Banana
+  - Fly
   layers:
   - Default
   - TransparentFX

@@ -4634,6 +4634,10 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 173975197, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
+      propertyPath: skillSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 173975197, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
       propertyPath: showSkills.Array.data[0]
       value: 
       objectReference: {fileID: 2001320188}
@@ -4661,6 +4665,11 @@ PrefabInstance:
       propertyPath: skillSprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 3278c9aa7857dfa4b9f1f77e4217e86f,
+        type: 3}
+    - target: {fileID: 173975197, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
+      propertyPath: skillSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 212667c1483f95843843a3b0033b7222,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
