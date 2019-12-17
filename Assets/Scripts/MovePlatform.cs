@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovePlatform : MonoBehaviour
 {
     private Vector3 orginalPosition;
-    [SerializeField]
-    private Vector3 Velocity;
+  //  [SerializeField]
+    public Vector3 Velocity;
     private float endPosR;
     private float endPosL;
     private bool right = true;

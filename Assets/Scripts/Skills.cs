@@ -24,6 +24,9 @@ public class Skills : MonoBehaviour
     private Reward rewardsLevel;
     private bool stateChange;
 
+    public GameObject StarPanel;
+    private float releaseTime = 0.6f;
+
     void Start()
     {
         stateChange = false;
@@ -171,24 +174,20 @@ public class Skills : MonoBehaviour
 
         // Score calc
         rewardsLevel = GameObject.Find("RewardManager").GetComponent<Reward>();
+        int stars = 0;
         if(player.throwCounter <= rewardsLevel.topTime)
         {
-            AddScore(currentLevel,3);
+            stars = 3;
         }
         else if(player.throwCounter <= rewardsLevel.midTime)
         {
-            AddScore(currentLevel, 2);
-
+            stars = 2;
         }
         else if(player.throwCounter <= rewardsLevel.lowTime)
         {
-            AddScore(currentLevel, 1);
+            stars = 1;
         }
-        else
-        {
-            AddScore(currentLevel, 0);
-        }
-
+        AddScore(currentLevel, stars);
         // ToDo drop levelReached in future - change to state.score.Count
         if (currentLevel == GameManager.Instance.state.levelReached)
         {
@@ -200,9 +199,9 @@ public class Skills : MonoBehaviour
         {
             SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
         }
-
-        winPanel.SetActive(true);
         player.StopBall();
+        winPanel.SetActive(true);
+        AnimStar(0, stars);
     }
 
     private void lose()
@@ -233,5 +232,21 @@ public class Skills : MonoBehaviour
             stateChange = true;
         }
         // Add cash
+    }
+    
+    private void AnimStar(int index, int stars)
+    {
+        if (stars > (index))
+        {
+            StarPanel.transform.GetChild(index).GetComponent<Animator>().enabled = true;
+            StarPanel.transform.GetChild(index).GetComponent<Animator>().SetBool("StartHide", true);
+            StartCoroutine(ReleaseAnim(index + 1, stars));
+        }
+    }
+
+    IEnumerator ReleaseAnim(int i, int stars)
+    {
+        yield return new WaitForSeconds(releaseTime);
+        AnimStar(i, stars);
     }
 }
