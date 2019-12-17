@@ -229,6 +229,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StopBall()
     {
+        rb.isKinematic = true;
         rb.mass = ballMass;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;
