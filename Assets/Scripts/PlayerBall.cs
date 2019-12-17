@@ -32,6 +32,11 @@ public class PlayerBall : MonoBehaviour
     public int throwCounter;
     public Text throwText;
 
+    // skills parameters
+    private float freezGravScale = 0.0f;
+    private float windGravScale = 0.3f;
+    private float stoneMass = 20.0f;
+
     private void Awake()
     {
         circleCol2D = GetComponent<CircleCollider2D>();
@@ -186,17 +191,17 @@ public class PlayerBall : MonoBehaviour
     public void Freez()
     {
         StopBall();
-        rb.gravityScale = 0.0f;
+        rb.gravityScale = freezGravScale;
     }
 
     public void Wind()
     {
-        rb.gravityScale = 0.3f;
+        rb.gravityScale = windGravScale;
     }
 
     public void Stone()
     {
-        rb.mass = rb.mass * 20;
+        rb.mass = rb.mass * stoneMass;
     }
     /*
     public void Bounce()

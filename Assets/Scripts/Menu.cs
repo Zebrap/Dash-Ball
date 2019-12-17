@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
 
     public GameObject mainMenu;
     public GameObject levelMenu;
+    public GameObject instructionMenu;
 
     public Text CashText;
     public Sprite fullStar;
@@ -82,10 +83,16 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(false);
         levelMenu.SetActive(true);
     }
-   
-    public void ShowMainMenu()
+
+    public void ShowInstructionMenu()
     {
-        levelMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        instructionMenu.SetActive(true);
+    }
+    
+    public void Back(GameObject menu)
+    {
+        menu.SetActive(false);
         mainMenu.SetActive(true);
     }
 }

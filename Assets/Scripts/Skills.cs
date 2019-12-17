@@ -76,7 +76,7 @@ public class Skills : MonoBehaviour
     
     public void useSkill()
     {
-        if (!player.isPressed && player.circleCol2D.enabled)
+        if (!player.isPressed && player.circleCol2D.enabled && PlayerBall.isMove)
         {
             if (skillsQueue.Count > 0)
             {
@@ -154,23 +154,6 @@ public class Skills : MonoBehaviour
     private void win()
     {
         int currentLevel = GameManager.Instance.currentLevel;
-        /*
-        try
-        {
-            rewardsLevel = GameObject.Find("RewardManager").GetComponent<Reward>();
-            if(GameManager.Instance.state.score.Count < currentLevel)
-            {
-                GameManager.Instance.state.score.Add(0);
-            }
-            else
-            {
-                GameManager.Instance.state.score[currentLevel] = 0;
-            }
-        }
-        catch(NullReferenceException e)
-        {
-            Debug.LogWarning("No rewards for this level: "+e);
-        }*/
 
         // Score calc
         rewardsLevel = GameObject.Find("RewardManager").GetComponent<Reward>();
