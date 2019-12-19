@@ -32,6 +32,8 @@ public class PlayerBall : MonoBehaviour
     public int throwCounter;
     public Text throwText;
 
+    private LineRenderer line;
+
     // skills parameters
     private float freezGravScale = 0.0f;
     private float windGravScale = 0.3f;
@@ -44,6 +46,7 @@ public class PlayerBall : MonoBehaviour
     {
         circleCol2D = GetComponent<CircleCollider2D>();
         springJoint2D = GetComponent<SpringJoint2D>();
+        line = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
         ballMass = rb.mass;
@@ -96,6 +99,7 @@ public class PlayerBall : MonoBehaviour
                         rb.isKinematic = true;
                         isPressed = true;
                         drag = true;
+                        line.enabled = true;
                         dragBall();
                     }
                 }
@@ -108,11 +112,13 @@ public class PlayerBall : MonoBehaviour
                 }
                 else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
+                    line.enabled = false;
+                    tr.enabled = true;
+
                     throwCounter++;
                     rb.gravityScale = gravityScale;
                     isPressed = false;
                     rb.isKinematic = false;
-                    tr.enabled = true;
                     changeThrowText();
 
                     StartCoroutine(Release());
@@ -120,6 +126,12 @@ public class PlayerBall : MonoBehaviour
             }
         }
         
+    }
+
+    private void DrawHook()
+    {
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, transform.GetChild(0).position);
     }
 
     private void dragBall()
@@ -133,6 +145,7 @@ public class PlayerBall : MonoBehaviour
         {
             rb.position = pos;
         }
+        DrawHook();
     }
     /*
     private void OnMouseDown()
@@ -236,8 +249,8 @@ public class PlayerBall : MonoBehaviour
         rb.gravityScale = 0.0f;
         hook.transform.position = transform.position;
         springJoint2D.enabled = true;
-        readyText.color = Color.green;
-   //     tr.enabled = false;
+        readyText.color = new Color(0, 0.95f, 0.1f);
+        tr.enabled = false;
         isMove = false;
     }
 
