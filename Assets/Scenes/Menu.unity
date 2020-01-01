@@ -155,7 +155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: -260, y: -1294}
+  m_SizeDelta: {x: -260, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6253441
 MonoBehaviour:
@@ -2255,7 +2255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1044999606
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3162,15 +3162,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 716202169995601100, guid: 6af6025502f8f554fbf3e695a0727a82,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 716202170995366972, guid: 6af6025502f8f554fbf3e695a0727a82,
         type: 3}
       propertyPath: m_Text
       value: 'Skills Queue '
+      objectReference: {fileID: 0}
+    - target: {fileID: 716202169995601100, guid: 6af6025502f8f554fbf3e695a0727a82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af6025502f8f554fbf3e695a0727a82, type: 3}
@@ -3191,7 +3191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356067358
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3455,11 +3455,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 716202169995601100, guid: 6af6025502f8f554fbf3e695a0727a82,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 716202169995601098, guid: 6af6025502f8f554fbf3e695a0727a82,
         type: 3}
       propertyPath: m_Sprite
@@ -3475,6 +3470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 716202169995601100, guid: 6af6025502f8f554fbf3e695a0727a82,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af6025502f8f554fbf3e695a0727a82, type: 3}
@@ -3729,17 +3729,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 716202171148890922, guid: 6af6025502f8f554fbf3e695a0727a82,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -273060469431498887, guid: 9abf0e72fc1c118418c3c0156d878779,
-        type: 3}
-    - target: {fileID: 716202171148890922, guid: 6af6025502f8f554fbf3e695a0727a82,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 716202169995601098, guid: 6af6025502f8f554fbf3e695a0727a82,
         type: 3}
       propertyPath: m_Sprite
@@ -3750,6 +3739,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Pull the ball to throw
+      objectReference: {fileID: 0}
+    - target: {fileID: 716202171148890922, guid: 6af6025502f8f554fbf3e695a0727a82,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -273060469431498887, guid: 9abf0e72fc1c118418c3c0156d878779,
+        type: 3}
+    - target: {fileID: 716202171148890922, guid: 6af6025502f8f554fbf3e695a0727a82,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af6025502f8f554fbf3e695a0727a82, type: 3}
@@ -3786,7 +3786,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
