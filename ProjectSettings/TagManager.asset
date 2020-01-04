@@ -11,6 +11,7 @@ TagManager:
   - Stone
   - Banana
   - Fly
+  - Trap
   layers:
   - Default
   - TransparentFX

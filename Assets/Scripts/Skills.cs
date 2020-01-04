@@ -136,6 +136,10 @@ public class Skills : MonoBehaviour
             {
                 win();
             }
+            else if(collision.tag.ToString() == "Trap"){
+                // if trap immunity
+                lose();
+            }
             else
             {
                 if(Enum.TryParse(collision.tag, out SkillsNames result))
@@ -196,7 +200,8 @@ public class Skills : MonoBehaviour
 
     private void lose()
     {
-        player.gameObject.SetActive(false);
+        // player.gameObject.SetActive(false);
+        player.Die();
         losePanel.SetActive(true);
     }
 

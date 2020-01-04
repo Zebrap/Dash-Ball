@@ -254,6 +254,15 @@ public class PlayerBall : MonoBehaviour
         isMove = false;
     }
 
+    public void Die()
+    {
+        isMove = false;
+        circleCol2D.enabled = false;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = 0.0f;
+        rb.gravityScale = 0.0f;
+    }
+
 
     private void changeThrowText()
     {
