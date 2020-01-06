@@ -23,17 +23,24 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-      //  SaveGame.Clear();
+        LoadSave();
+    }
+
+    private void LoadSave() {
+        //       SaveGame.Clear();
         if (SaveGame.Exists("PlayerData"))
         {
             state = SaveGame.Load<PlayerData>("PlayerData");
-  //          Debug.Log("Staty: " + state.ToString());
+            //          Debug.Log("Staty: " + state.ToString());
+        }
+        else
+        {
+            state = new PlayerData();
         }
         //      Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        //     Instance = this;
 
         // Init score list
-        while(state.score.Count < state.levelReached)
+        while (state.score.Count < state.levelReached)
         {
             state.score.Add(0);
         }
@@ -45,6 +52,13 @@ public class GameManager : MonoBehaviour
             int lastSlash = scenePath.LastIndexOf("/");
             scenesInBuild.Add(scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1));
         }
+    }
+
+    public void ResetSave()
+    {
+        SaveGame.Clear();
+        LoadSave();
+        SceneManager.LoadScene("Menu");
     }
     
 

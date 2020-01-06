@@ -27,6 +27,9 @@ public class Skills : MonoBehaviour
     public GameObject StarPanel;
     private float releaseTime = 0.6f;
 
+    //cheat
+    public GameObject optionPanel;
+
     void Start()
     {
         stateChange = false;
@@ -160,6 +163,13 @@ public class Skills : MonoBehaviour
     private void AddSpriteSkill(int skillSpriteNumber)
     {
         showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[skillSpriteNumber];
+    }
+
+    public void CheatWin()
+    {
+        optionPanel.SetActive(false);
+        Time.timeScale = 1.0f;
+        win();
     }
 
     private void win()

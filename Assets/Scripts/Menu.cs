@@ -95,4 +95,9 @@ public class Menu : MonoBehaviour
         menu.SetActive(false);
         mainMenu.SetActive(true);
     }
+
+    public void ResetSave()
+    {
+        GameManager.Instance.ResetSave();
+    }
 }
