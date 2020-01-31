@@ -12,12 +12,22 @@ public class Menu : MonoBehaviour
     public GameObject levelMenu;
     public GameObject instructionMenu;
 
+    public GameObject ShopButtonPrefab;
+    public GameObject ShopButtonContainer;
+
     public Text CashText;
     public Sprite fullStar;
+
+    public Text BuySetSkinText;
+
+    private float scaleItem = 1.125f;
+    private int currentSelectedSkin;
+    private int[] skinsCost = new int[] { 0, 5, 5, 10, 10, 10, 15, 15, 15};
 
     void Start()
     {
         InitLevels();
+        InitSkins();
         InitCash();
     }
     
@@ -38,10 +48,9 @@ public class Menu : MonoBehaviour
         int levelIndex = 0;
         foreach (string name in GameManager.Instance.scenesInBuild)
         {
-            
             int index = levelIndex;
             Button button = Instantiate(selectLevelButton) as Button;
-            button.GetComponentInChildren<Text>().GetComponentInChildren<Text>().text = name;
+            button.GetComponentInChildren<Text>().GetComponentInChildren<Text>().text = (index+1).ToString();
        //     GameManager.Instance.state.score[index]
             button.onClick.AddListener(() => StartLevel(index));
             button.transform.SetParent(levelContainer.transform);
@@ -60,17 +69,81 @@ public class Menu : MonoBehaviour
             }
             levelIndex++;
         }
-        // ToDo ?
-            /*  private int ConvertStringToInt(string intString)
+    }
+
+    public void InitSkins()
+    {
+        int textureIndex = 0;
+        Sprite[] textures = Resources.LoadAll<Sprite>("Skins");
+        foreach (Sprite thumbnail in textures)
         {
-            int i = 0;
-            if (!Int32.TryParse(intString, out i))
+            GameObject container = Instantiate(ShopButtonPrefab) as GameObject;
+            container.transform.GetChild(0).GetComponent<Image>().sprite = thumbnail;
+            container.transform.SetParent(ShopButtonContainer.transform, false);
+
+            int index = textureIndex;
+            container.GetComponent<Button>().onClick.AddListener(() => OnClickSelectSkin(index));
+            
+            if (IsSkinOwned(index))
             {
-                i = 0;
+                if (GameManager.Instance.state.activeSkin == index)
+                {
+                    container.GetComponent<Image>().color = new Color32(20, 250, 0, 100);
+                }
+                else
+                {
+                    container.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+                }
             }
-            return i;
+            /*
+            container.GetComponent<Button>().onClick.AddListener(() => ChangePlayerSkin(index));
+            container.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = costs[index].ToString();
+            // container.transform.GetComponentInChildren<Text>()
+            if ((GameManager.Instance.skinAvailability & 1 << index) == 1 << index)
+            {
+                container.transform.GetChild(0).gameObject.SetActive(false);
+            }*/
+            textureIndex++;
         }
-        */
+    }
+
+    public void OnClickSelectSkin(int currentIndex)
+    {
+
+        if (currentSelectedSkin == currentIndex)
+            return;
+
+        // make it bigger
+        ShopButtonContainer.transform.GetChild(currentIndex).GetComponent<RectTransform>().localScale = Vector3.one * scaleItem;
+        // normal scale
+        ShopButtonContainer.transform.GetChild(currentSelectedSkin).GetComponent<RectTransform>().localScale = Vector3.one;
+        
+        currentSelectedSkin = currentIndex;
+
+        // Change the content of the button
+        if (IsSkinOwned(currentIndex))
+        {
+            // is onwed
+            if (GameManager.Instance.state.activeSkin == currentIndex)
+            {
+                BuySetSkinText.text = "Current";
+            }
+            else
+            {
+                BuySetSkinText.text = "Select";
+            }
+        }
+        else
+        {
+            // isn't owned
+            BuySetSkinText.text = "Buy : "+ skinsCost[currentIndex].ToString();
+        }
+    }
+
+    public bool IsSkinOwned(int index)
+    {
+        // check bit 
+        return (GameManager.Instance.state.skinOwned & (1 << index)) != 0;
     }
 
     private void InitCash()
@@ -94,6 +167,12 @@ public class Menu : MonoBehaviour
     {
         menu.SetActive(false);
         mainMenu.SetActive(true);
+    }
+
+    public void ShowThatMenu(GameObject menu)
+    {
+        mainMenu.SetActive(false);
+        menu.SetActive(true);
     }
 
     public void ResetSave()

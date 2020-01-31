@@ -4870,5 +4870,26 @@ PrefabInstance:
       propertyPath: throwText
       value: 
       objectReference: {fileID: 970419837}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: maxDragDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689809, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fe7ce040e6a2814c81d9a3ffe3acbf8,
+        type: 3}
+    - target: {fileID: 693329019811689809, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689812, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_Frequency
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}

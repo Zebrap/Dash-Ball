@@ -6,12 +6,16 @@ public class PlayerData
     public int levelReached { get; set; }
     public List<int> score;
     public int cash;
+    public int skinOwned = 1;
+    public int activeSkin = 0;
 
     public PlayerData()
     {
         levelReached = 0;
         score = new List<int>();
         cash = 0;
+        skinOwned = 1;
+        activeSkin = 0;
     }
 
 }
