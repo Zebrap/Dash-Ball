@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4873,7 +4873,7 @@ PrefabInstance:
     - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
         type: 3}
       propertyPath: maxDragDistance
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 693329019811689809, guid: 85a88d700df17164f84a813f57764ec5,
         type: 3}
@@ -4890,6 +4890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Frequency
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689823, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689823, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}

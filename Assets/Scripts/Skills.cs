@@ -57,11 +57,9 @@ public class Skills : MonoBehaviour
             {
                 case SkillsNames.Freeze:
                     AddSpriteSkill(0);
-                //    Debug.Log("add to stack: "+SkillsNames.Freeze);
                     break;
                 case SkillsNames.Wind:
                     AddSpriteSkill(1);
-                //    Debug.Log("add to stack: " + SkillsNames.Wind);
                     break;
                 case SkillsNames.Stone:
                     AddSpriteSkill(2);
@@ -70,13 +68,8 @@ public class Skills : MonoBehaviour
                     AddSpriteSkill(3);
                     break;
                 default:
-                    Debug.Log("No skill");
                     break;
             }
-        }
-        else
-        {
-            Debug.Log("Full stack");
         }
     }
     
@@ -90,12 +83,10 @@ public class Skills : MonoBehaviour
                 {
                     case SkillsNames.Freeze:
                         player.Freez();
-                        //    Debug.Log(SkillsNames.Freeze);
                         changeSpriteAfterUse();
                         break;
                     case SkillsNames.Wind:
                         player.Wind();
-                        //     Debug.Log(SkillsNames.Wind);
                         changeSpriteAfterUse();
                         break;
                     case SkillsNames.Stone:
