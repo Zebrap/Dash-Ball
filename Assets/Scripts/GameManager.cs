@@ -90,6 +90,37 @@ public class GameManager : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene("Level");
+    }
 
+    public bool BuySkin(int index, int cost)
+    {
+        if (state.cash >= cost)
+        {
+            // buy
+            state.cash -= cost;
+            // Save
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void UnlockSkin(int index)
+    {
+        // Toggle on the bit at index
+        state.skinOwned |= 1 << index;
+    }
+
+    public void ChangeActiveSkin(int index)
+    {
+        state.activeSkin = index;
+        Save();
+    }
+
+    public void Save()
+    {
+        SaveGame.Save<PlayerData>("PlayerData", state);
     }
 }

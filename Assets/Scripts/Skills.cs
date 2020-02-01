@@ -201,7 +201,7 @@ public class Skills : MonoBehaviour
         // save data
         if (stateChange)
         {
-            SaveGame.Save<PlayerData>("PlayerData", GameManager.Instance.state);
+            GameManager.Instance.Save();
         }
         player.StopBall();
         winPanel.SetActive(true);

@@ -19,10 +19,13 @@ public class Menu : MonoBehaviour
     public Sprite fullStar;
 
     public Text BuySetSkinText;
+    public Color32 SelectedSkinColor = new Color32(20, 250, 0, 100);
+    public Color32 OwnedSkinColor = new Color32(255, 255, 255, 100);
 
     private float scaleItem = 1.125f;
     private int currentSelectedSkin;
     private int[] skinsCost = new int[] { 0, 5, 5, 10, 10, 10, 15, 15, 15};
+    
 
     void Start()
     {
@@ -88,11 +91,12 @@ public class Menu : MonoBehaviour
             {
                 if (GameManager.Instance.state.activeSkin == index)
                 {
-                    container.GetComponent<Image>().color = new Color32(20, 250, 0, 100);
+                    container.GetComponent<Image>().color = SelectedSkinColor;
+                    container.GetComponent<RectTransform>().localScale = Vector3.one * scaleItem;
                 }
                 else
                 {
-                    container.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+                    container.GetComponent<Image>().color = OwnedSkinColor;
                 }
             }
             /*
@@ -144,6 +148,41 @@ public class Menu : MonoBehaviour
     {
         // check bit 
         return (GameManager.Instance.state.skinOwned & (1 << index)) != 0;
+    }
+
+    public void OnSkinBuySet()
+    {
+        //    Debug.Log("Buy/Set color");
+        // Is the selected color owned
+        if (IsSkinOwned(currentSelectedSkin) & GameManager.Instance.state.activeSkin != currentSelectedSkin)
+        {
+            SetSkinn();
+        }
+        else
+        {
+            // attempt to buy
+            if (GameManager.Instance.BuySkin(currentSelectedSkin, skinsCost[currentSelectedSkin]))
+            {
+                // Success
+                GameManager.Instance.UnlockSkin(currentSelectedSkin);
+                SetSkinn();
+
+                // Update gold text
+                InitCash();
+            }
+            else
+            {
+                // do not have enough gold
+                Debug.Log("Not enought gold");
+            }
+        }
+    }
+    public void SetSkinn()
+    {
+        ShopButtonContainer.transform.GetChild(GameManager.Instance.state.activeSkin).GetComponent<Image>().color = OwnedSkinColor;
+        ShopButtonContainer.transform.GetChild(currentSelectedSkin).GetComponent<Image>().color = SelectedSkinColor;
+        GameManager.Instance.ChangeActiveSkin(currentSelectedSkin);
+        BuySetSkinText.text = "Current";
     }
 
     private void InitCash()
