@@ -41,6 +41,7 @@ public class PlayerBall : MonoBehaviour
 
     private float flyGrav = -0.1f;
     private float flyTimer = 2.0f;
+    
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class PlayerBall : MonoBehaviour
         line = GetComponent<LineRenderer>();
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+        GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Skins/Ball"+GameManager.Instance.state.activeSkin.ToString());
         ballMass = rb.mass;
         throwCounter = 0;
     }
