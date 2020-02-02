@@ -34,8 +34,19 @@ public class LevelManager : MonoBehaviour
     
     public void LoadScene()
     {
-        string levelName = GameManager.Instance.currentLevel.ToString();
+     //   string levelName = GameManager.Instance.currentLevel.ToString();
+        if(GameManager.Instance.scenesInBuild.Count > GameManager.Instance.currentLevel)
+        {
+            SceneManager.LoadScene(GameManager.Instance.scenesInBuild[GameManager.Instance.currentLevel], LoadSceneMode.Additive);
+        }
+        else
+        {
+            Debug.LogWarning("Load Scene Failed. " + GameManager.Instance.currentLevel + " not found.");
+            GameManager.Instance.currentLevel = 0;
+            BackToMenu();
+        }
     //    Debug.Log("Load: " + levelName);
+    /*
         if (GameManager.Instance.scenesInBuild.Contains(levelName)){
             SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
         }
@@ -44,7 +55,7 @@ public class LevelManager : MonoBehaviour
             GameManager.Instance.currentLevel = 0;
             Debug.LogWarning("Load Scene Failed. " + levelName + " not found.");
             BackToMenu();
-        }
+        }*/
         GameManager.Instance.FadeInScane();
     }
     
