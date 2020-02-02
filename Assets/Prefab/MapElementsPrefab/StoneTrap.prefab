@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9147512815956836171}
   - component: {fileID: 9147512815956836169}
   - component: {fileID: 9147512815956836168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: StoneTrap
   m_TagString: Trap
   m_Icon: {fileID: 0}

@@ -766,7 +766,7 @@ GameObject:
   m_Component:
   - component: {fileID: 786060727}
   - component: {fileID: 786060728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,7 +1017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1624372043}
   - component: {fileID: 1624372044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4077174029915422162}
   - component: {fileID: 4077174029915422173}
   - component: {fileID: 4077174029915422172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Prop_5_Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

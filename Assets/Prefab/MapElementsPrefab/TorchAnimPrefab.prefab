@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2058817861899816233}
   - component: {fileID: 5131724805403872072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 1268645898270181898}
   - component: {fileID: 1268645898270181893}
   - component: {fileID: 1268645898270181892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TorchAnimPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

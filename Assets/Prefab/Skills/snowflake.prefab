@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4220962193146738146}
   - component: {fileID: 4220962193146738144}
   - component: {fileID: 4220962193146738147}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: snowflake
   m_TagString: Freeze
   m_Icon: {fileID: 0}
