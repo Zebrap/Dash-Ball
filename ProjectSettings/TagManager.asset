@@ -12,6 +12,7 @@ TagManager:
   - Banana
   - Fly
   - Trap
+  - SmallSize
   layers:
   - Default
   - TransparentFX

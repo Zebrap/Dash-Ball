@@ -8,5 +8,6 @@ public enum SkillsNames
     Wind,
     Stone,
     Fly,
+    SmallSize,
     Power
 }

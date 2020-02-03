@@ -68,6 +68,9 @@ public class Skills : MonoBehaviour
                 case SkillsNames.Fly:
                     AddSpriteSkill(3);
                     break;
+                case SkillsNames.SmallSize:
+                    AddSpriteSkill(4);
+                    break;
                 default:
                     break;
             }
@@ -128,6 +131,10 @@ public class Skills : MonoBehaviour
                     break;
                 case SkillsNames.Fly:
                     player.Fly();
+                    changeSpriteAfterUse();
+                    break;
+                case SkillsNames.SmallSize:
+                    player.SmallSize();
                     changeSpriteAfterUse();
                     break;
                 default:

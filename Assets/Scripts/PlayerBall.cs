@@ -42,7 +42,10 @@ public class PlayerBall : MonoBehaviour
 
     private float flyGrav = -0.1f;
     private float flyTimer = 2.0f;
-    
+
+    private Vector3 baseScale;
+    private bool scalling = false;
+    private float scaleValue = 0.3f;
 
     private void Awake()
     {
@@ -54,6 +57,7 @@ public class PlayerBall : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Skins/Ball"+GameManager.Instance.state.activeSkin.ToString());
         ballMass = rb.mass;
         throwCounter = 0;
+        baseScale = transform.localScale;
     }
 
     private void Start()
@@ -68,6 +72,15 @@ public class PlayerBall : MonoBehaviour
         {
             circleCol2D.enabled = true;
             EnableGrab();
+
+            if (scalling)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, transform.localScale * scaleValue, Time.deltaTime * 3f);
+                if (transform.localScale.x <= baseScale.x * scaleValue)
+                {
+                    scalling = false;
+                }
+            }
         }
         else{
             PlayerInput();
@@ -85,7 +98,6 @@ public class PlayerBall : MonoBehaviour
                 rb.position = pos;
             }
         }*/
-        
     }
 
     private void PlayerInput()
@@ -230,6 +242,13 @@ public class PlayerBall : MonoBehaviour
         StartCoroutine(FlyTimer());
     }
 
+    public void SmallSize()
+    {
+        rb.mass = rb.mass * 0.2f;
+        scalling = true;
+      //  transform.localScale = new Vector3(transform.localScale.x * 0.3f, transform.localScale.y * 0.3f, 1f);
+    }
+
     IEnumerator FlyTimer()
     {
         yield return new WaitForSeconds(flyTimer);
@@ -257,6 +276,7 @@ public class PlayerBall : MonoBehaviour
         readyText.color = new Color(0, 0.95f, 0.1f);
         tr.enabled = false;
         isMove = false;
+        transform.localScale = baseScale;
     }
 
     public void Die()

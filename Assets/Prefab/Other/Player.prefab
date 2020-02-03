@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961974848}
   - component: {fileID: 961974849}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1871741016}
   - component: {fileID: 1871741017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TargetIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1894924585}
   - component: {fileID: 1894924584}
   - component: {fileID: 1894924583}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 693329019811689813}
   - component: {fileID: 173975197}
   - component: {fileID: 403722551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4ed48df112aceb342a65222041850d6f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fe7ce040e6a2814c81d9a3ffe3acbf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -345,7 +345,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
+  m_LinearDrag: 0.005
   m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 32e3aa5a834a4224ba4507bc1a89dd2a, type: 2}
@@ -517,6 +517,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3278c9aa7857dfa4b9f1f77e4217e86f, type: 3}
   - {fileID: 21300000, guid: 7dbd6e8f97c79af44a7626edcf603278, type: 3}
   - {fileID: 21300000, guid: 212667c1483f95843843a3b0033b7222, type: 3}
+  - {fileID: 21300000, guid: 688a30fe10c0c23499bf713e94dd17a6, type: 3}
   blankSkillSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   showSkills:
   - {fileID: 0}
@@ -526,6 +527,8 @@ MonoBehaviour:
   losePanel: {fileID: 0}
   player: {fileID: 693329019811689813}
   StarPanel: {fileID: 0}
+  releaseSkillTime: 0.15
+  optionPanel: {fileID: 0}
 --- !u!120 &403722551
 LineRenderer:
   m_ObjectHideFlags: 0
