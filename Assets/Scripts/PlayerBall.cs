@@ -8,7 +8,7 @@ public class PlayerBall : MonoBehaviour
     public Rigidbody2D hook;
     public Text readyText;
     
-    public float releaseTime = .15f;
+    public float releaseTime = .17f;
     public float maxDragDistance = 2f;
     public float activeColierRange = 0.2f;
 
@@ -23,7 +23,8 @@ public class PlayerBall : MonoBehaviour
     private float gravityScale = 1.0f;
     private float ballMass;
     public bool drag = false;
-    
+    public bool canUseSkinn { get; set; } = false;
+
     public CircleCollider2D circleCol2D;
     private SpringJoint2D springJoint2D;
     private Rigidbody2D rb;
@@ -114,6 +115,7 @@ public class PlayerBall : MonoBehaviour
                 }
                 else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
+                    canUseSkinn = true;
                     line.enabled = false;
                     tr.enabled = true;
 
@@ -244,6 +246,7 @@ public class PlayerBall : MonoBehaviour
 
     public void StopBall()
     {
+        canUseSkinn = false;
         rb.isKinematic = true;
         rb.mass = ballMass;
         rb.velocity = Vector3.zero;

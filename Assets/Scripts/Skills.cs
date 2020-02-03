@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using BayatGames.SaveGameFree;
 
 public class Skills : MonoBehaviour
 {
@@ -26,6 +25,8 @@ public class Skills : MonoBehaviour
 
     public GameObject StarPanel;
     private float releaseTime = 0.6f;
+
+    public float releaseSkillTime = .15f;
 
     //cheat
     public GameObject optionPanel;
@@ -75,43 +76,71 @@ public class Skills : MonoBehaviour
     
     public void useSkill()
     {
-        if (!player.isPressed && player.circleCol2D.enabled && PlayerBall.isMove)
+        // if (PlayerBall.isMove)
+        if (player.canUseSkinn)
         {
-            if (skillsQueue.Count > 0)
+            if (player.circleCol2D.enabled && PlayerBall.isMove)
             {
-                switch (skillsQueue.Dequeue())
-                {
-                    case SkillsNames.Freeze:
-                        player.Freez();
-                        changeSpriteAfterUse();
-                        break;
-                    case SkillsNames.Wind:
-                        player.Wind();
-                        changeSpriteAfterUse();
-                        break;
-                    case SkillsNames.Stone:
-                        player.Stone();
-                        changeSpriteAfterUse();
-                        break;
-                    case SkillsNames.Fly:
-                        player.Fly();
-                        changeSpriteAfterUse();
-                        break;
-                    default:
-                        Debug.Log("No skill");
-                        break;
-                }
+                switchSkill();
             }
             else
             {
-                Debug.Log("No skill stack");
+                // use when possible
+                StartCoroutine(Wait());
+                //Debug.Log("You can't use the skill while dragging");
+            }
+        }
+        
+    }
+
+    IEnumerator Wait()
+    {
+        int counter = 0;
+        while(!player.circleCol2D.enabled || !PlayerBall.isMove)
+        {
+            yield return new WaitForSeconds(releaseSkillTime);
+            if (counter > 10)
+            {
+                break;
+            }
+            counter++;
+        }
+        switchSkill();
+    }
+
+    public void switchSkill()
+    {
+        if (skillsQueue.Count > 0)
+        {
+            switch (skillsQueue.Dequeue())
+            {
+                case SkillsNames.Freeze:
+                    player.Freez();
+                    changeSpriteAfterUse();
+                    break;
+                case SkillsNames.Wind:
+                    player.Wind();
+                    changeSpriteAfterUse();
+                    break;
+                case SkillsNames.Stone:
+                    player.Stone();
+                    changeSpriteAfterUse();
+                    break;
+                case SkillsNames.Fly:
+                    player.Fly();
+                    changeSpriteAfterUse();
+                    break;
+                default:
+                    Debug.Log("No skill");
+                    break;
             }
         }
         else
         {
-            Debug.Log("You can't use the skill while dragging");
+            Debug.Log("No skill stack");
         }
     }
+
 
     void changeSpriteAfterUse()
     {
