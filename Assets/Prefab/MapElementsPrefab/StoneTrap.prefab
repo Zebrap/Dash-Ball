@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9147512815956836171}
   - component: {fileID: 9147512815956836169}
   - component: {fileID: 9147512815956836168}
+  - component: {fileID: 3641396057709118746}
   m_Layer: 9
   m_Name: StoneTrap
   m_TagString: Trap
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.3880148}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -107,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 0.41}
+  m_Size: {x: 4, y: 0.18602955}
   m_EdgeRadius: 0
 --- !u!68 &9147512815956836169
 EdgeCollider2D:
@@ -168,3 +169,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5118728, y: 0.29772997}
   m_EdgeRadius: 0
+--- !u!68 &3641396057709118746
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9147512815956836175}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.8829813, y: -0.49611494}
+  - {x: -1.6399372, y: -0.70283645}
+  - {x: 1.865915, y: -0.6765387}
+  - {x: 1.9795682, y: -0.50393784}

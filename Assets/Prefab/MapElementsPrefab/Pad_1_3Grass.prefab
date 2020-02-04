@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3189275969105874901}
   - component: {fileID: 3189275969105874923}
   - component: {fileID: 3189275969105874900}
+  - component: {fileID: 8736229115352433321}
   m_Layer: 9
-  m_Name: Pad_1_3
+  m_Name: Pad_1_3Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.18}
+  m_Offset: {x: 0, y: 0.23352343}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,5 +106,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.85, y: 0.4}
+  m_Size: {x: 3.85, y: 0.29295313}
   m_EdgeRadius: 0
+--- !u!68 &8736229115352433321
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189275969105874902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.8603998, y: 0.08119992}
+  - {x: -1.6122388, y: -0.15706187}
+  - {x: 1.6621227, y: -0.14871803}
+  - {x: 1.9241998, y: 0.09280009}

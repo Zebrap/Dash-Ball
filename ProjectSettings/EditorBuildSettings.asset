@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/8_SnowSmallSize.unity
     guid: 65dbecf030b5713499700f9595e928f6
   - enabled: 1
+    path: Assets/Scenes/Levels/9_SmallSize.unity
+    guid: 9fb2af5181690ce44851a7c408980d60
+  - enabled: 1
     path: Assets/Scenes/Levels/Cave1.unity
     guid: bebacec88ae3c2445b22f77d331d8eb0
   - enabled: 1

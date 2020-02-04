@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 9126748025272805509}
   - component: {fileID: 1752855010584653578}
   - component: {fileID: 7205050864153317740}
+  - component: {fileID: 8315731909557003442}
   m_Layer: 9
-  m_Name: Pad_3_3
+  m_Name: Pad_3_3Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14}
+  m_Offset: {x: -0.0105012655, y: 0.23451187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,5 +106,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 0.41}
+  m_Size: {x: 4.021003, y: 0.22097626}
   m_EdgeRadius: 0
+--- !u!68 &8315731909557003442
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433967973354041978}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.846546, y: 0.11158312}
+  - {x: -1.6182296, y: -0.08703985}
+  - {x: 1.8839602, y: -0.06633726}
+  - {x: 1.973345, y: 0.11158319}
