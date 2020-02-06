@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
+    public AudioMixer audioMixer;
     // Audio players components.
     public AudioSource efxSource;
     public AudioSource musicSource;
@@ -17,7 +19,8 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+
+        if (instance == null)
         {
             instance = this;
         }else if(instance != this)
@@ -26,6 +29,11 @@ public class SoundManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        LoadSoundOptions();
     }
 
     public void PlaySingle(AudioClip clip)
@@ -53,5 +61,17 @@ public class SoundManager : MonoBehaviour
     public void SetEfxVolume(float volume)
     {
         efxSource.volume = volume;
+    }
+
+    public void LoadSoundOptions()
+    {
+        if (PlayerPrefs.HasKey("Music"))
+        {
+            audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("Music", 0));
+        }
+        if (PlayerPrefs.HasKey("Efx"))
+        {
+            audioMixer.SetFloat("Efx", PlayerPrefs.GetFloat("Efx", 0));
+        }
     }
 }

@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
         LoadSave();
     }
 
+    void Start()
+    {
+        // TODO
+        // preloader loadSave
+    }
+
     private void LoadSave() {
         //       SaveGame.Clear();
         if (SaveGame.Exists("PlayerData"))
@@ -60,18 +66,6 @@ public class GameManager : MonoBehaviour
         LoadSave();
         SceneManager.LoadScene("Menu");
     }
-    
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
-
 
     public void FadeToNextScane()
     {
