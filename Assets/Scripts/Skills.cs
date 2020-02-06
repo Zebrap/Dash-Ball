@@ -232,12 +232,14 @@ public class Skills : MonoBehaviour
         }
         player.StopBall();
         winPanel.SetActive(true);
+        SoundManager.instance.PlaySingle(player.winSound);
         AnimStar(0, stars);
     }
 
     private void lose()
     {
         // player.gameObject.SetActive(false);
+        SoundManager.instance.PlaySingle(player.gameOverSound);
         player.Die();
         losePanel.SetActive(true);
     }

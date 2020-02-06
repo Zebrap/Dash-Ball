@@ -47,6 +47,13 @@ public class PlayerBall : MonoBehaviour
     private bool scalling = false;
     private float scaleValue = 0.3f;
 
+    public AudioClip moveSound1;
+    public AudioClip moveSound2;
+    public AudioClip skillsound1;
+    public AudioClip skillsound2;
+    public AudioClip winSound;
+    public AudioClip gameOverSound;
+
     private void Awake()
     {
         circleCol2D = GetComponent<CircleCollider2D>();
@@ -136,6 +143,7 @@ public class PlayerBall : MonoBehaviour
                     isPressed = false;
                     rb.isKinematic = false;
                     changeThrowText();
+                    SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
 
                     StartCoroutine(Release());
                 }
@@ -224,29 +232,34 @@ public class PlayerBall : MonoBehaviour
     {
         StopBall();
         rb.gravityScale = freezGravScale;
+        SoundManager.instance.PlaySingle(skillsound1);
     }
 
     public void Wind()
     {
         rb.gravityScale = windGravScale;
+        SoundManager.instance.PlaySingle(skillsound1);
     }
 
     public void Stone()
     {
         rb.mass = rb.mass * stoneMass;
+        SoundManager.instance.PlaySingle(skillsound2);
     }
 
     public void Fly()
     {
         rb.gravityScale = flyGrav;
         StartCoroutine(FlyTimer());
+        SoundManager.instance.PlaySingle(skillsound2);
     }
 
     public void SmallSize()
     {
         rb.mass = rb.mass * 0.2f;
         scalling = true;
-      //  transform.localScale = new Vector3(transform.localScale.x * 0.3f, transform.localScale.y * 0.3f, 1f);
+        SoundManager.instance.PlaySingle(skillsound2);
+        //  transform.localScale = new Vector3(transform.localScale.x * 0.3f, transform.localScale.y * 0.3f, 1f);
     }
 
     IEnumerator FlyTimer()
@@ -282,6 +295,7 @@ public class PlayerBall : MonoBehaviour
     public void Die()
     {
         isMove = false;
+        drag = true;
         circleCol2D.enabled = false;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = 0.0f;

@@ -194,7 +194,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0.63529414}
   m_FlipX: 0
@@ -500,6 +500,12 @@ MonoBehaviour:
   circleCol2D: {fileID: 0}
   throwCounter: 0
   throwText: {fileID: 0}
+  moveSound1: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+  moveSound2: {fileID: 8300000, guid: 7e9ee6dc04a5d40d1a5dfc4beb9865e7, type: 3}
+  skillsound1: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+  skillsound2: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
+  winSound: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
 --- !u!114 &173975197
 MonoBehaviour:
   m_ObjectHideFlags: 0

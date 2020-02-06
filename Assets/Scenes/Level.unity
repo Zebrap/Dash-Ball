@@ -5741,9 +5741,10 @@ PrefabInstance:
       propertyPath: throwText
       value: 
       objectReference: {fileID: 970419837}
-    - target: {fileID: 1894924584, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}
