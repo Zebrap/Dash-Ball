@@ -43,4 +43,15 @@ public class SoundManager : MonoBehaviour
         efxSource.clip = clips[randomIndex];
         efxSource.Play();
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
+
+
+    public void SetEfxVolume(float volume)
+    {
+        efxSource.volume = volume;
+    }
 }
