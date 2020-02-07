@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        LoadSoundOptions();
+        LoadOptions();
     }
 
     public void PlaySingle(AudioClip clip)
@@ -63,8 +63,9 @@ public class SoundManager : MonoBehaviour
         efxSource.volume = volume;
     }
 
-    public void LoadSoundOptions()
+    public void LoadOptions()
     {
+        // sound
         if (PlayerPrefs.HasKey("Music"))
         {
             audioMixer.SetFloat("Music", PlayerPrefs.GetFloat("Music", 0));
@@ -72,6 +73,11 @@ public class SoundManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Efx"))
         {
             audioMixer.SetFloat("Efx", PlayerPrefs.GetFloat("Efx", 0));
+        }
+        // Quality:
+        if (PlayerPrefs.HasKey("QualityLevel"))
+        {
+            QualitySettings.SetQualityLevel(PlayerPrefs.GetInt("QualityLevel", 1));
         }
     }
 }

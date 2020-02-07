@@ -11,6 +11,7 @@ public class Options : MonoBehaviour
     private float efxValue;
     public Slider musicVolueSlider;
     public Slider efxVolueSlider;
+    public Dropdown dropDownQuality;
 
     private void Start()
     {
@@ -46,6 +47,13 @@ public class Options : MonoBehaviour
         {
             efxVolueSlider.value = efxValue;
         }
+        dropDownQuality.value = QualitySettings.GetQualityLevel()-1; // not very low (-1)
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        // low, medium, high (not very low)
+        QualitySettings.SetQualityLevel(qualityIndex+1);
     }
 
     public void SaveOptions()
@@ -59,6 +67,8 @@ public class Options : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Efx", efxValue);
         }
+        // Quality:
+        PlayerPrefs.SetInt("QualityLevel", QualitySettings.GetQualityLevel());
 
         PlayerPrefs.Save();
     }
