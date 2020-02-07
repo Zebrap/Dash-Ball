@@ -5746,5 +5746,30 @@ PrefabInstance:
       propertyPath: gameOverSound
       value: 
       objectReference: {fileID: 8300000, guid: 5fdb13d3756c84fecac96f5a2d124370, type: 3}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: skillsound1
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: skillsound3
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: skillsound4
+      value: 
+      objectReference: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: skillsound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 29bde6326b4c34ad8a12da475f79b50a, type: 3}
+    - target: {fileID: 693329019811689813, guid: 85a88d700df17164f84a813f57764ec5,
+        type: 3}
+      propertyPath: skillsound5
+      value: 
+      objectReference: {fileID: 8300000, guid: a235d590ef2a04d1b85b61ef4c21337c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a88d700df17164f84a813f57764ec5, type: 3}

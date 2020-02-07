@@ -51,6 +51,9 @@ public class PlayerBall : MonoBehaviour
     public AudioClip moveSound2;
     public AudioClip skillsound1;
     public AudioClip skillsound2;
+    public AudioClip skillsound3;
+    public AudioClip skillsound4;
+    public AudioClip skillsound5;
     public AudioClip winSound;
     public AudioClip gameOverSound;
 
@@ -238,27 +241,27 @@ public class PlayerBall : MonoBehaviour
     public void Wind()
     {
         rb.gravityScale = windGravScale;
-        SoundManager.instance.PlaySingle(skillsound1);
+        SoundManager.instance.PlaySingle(skillsound2);
     }
 
     public void Stone()
     {
         rb.mass = rb.mass * stoneMass;
-        SoundManager.instance.PlaySingle(skillsound2);
+        SoundManager.instance.PlaySingle(skillsound3);
     }
 
     public void Fly()
     {
         rb.gravityScale = flyGrav;
         StartCoroutine(FlyTimer());
-        SoundManager.instance.PlaySingle(skillsound2);
+        SoundManager.instance.PlaySingle(skillsound4);
     }
 
     public void SmallSize()
     {
         rb.mass = rb.mass * 0.2f;
         scalling = true;
-        SoundManager.instance.PlaySingle(skillsound2);
+        SoundManager.instance.PlaySingle(skillsound5);
         //  transform.localScale = new Vector3(transform.localScale.x * 0.3f, transform.localScale.y * 0.3f, 1f);
     }
 
