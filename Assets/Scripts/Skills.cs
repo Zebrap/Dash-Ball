@@ -34,6 +34,7 @@ public class Skills : MonoBehaviour
     void Start()
     {
         stateChange = false;
+        InitProfileSkills();
     }
     
     void Update()
@@ -53,30 +54,37 @@ public class Skills : MonoBehaviour
     {
         if(showSkills.Length > skillsQueue.Count)
         {
-            skillsQueue.Enqueue(skillname);
+          //  skillsQueue.Enqueue(skillname);
             switch (skillname)
             {
                 case SkillsNames.Freeze:
-                    AddSpriteSkill(0);
+                   // AddSpriteSkill(0);
+                    AddToQueue(0, skillname);
                     break;
                 case SkillsNames.Wind:
-                    AddSpriteSkill(1);
+                   AddToQueue(1, skillname);
                     break;
                 case SkillsNames.Stone:
-                    AddSpriteSkill(2);
+                    AddToQueue(2, skillname);
                     break;
                 case SkillsNames.Fly:
-                    AddSpriteSkill(3);
+                    AddToQueue(3, skillname);
                     break;
                 case SkillsNames.SmallSize:
-                    AddSpriteSkill(4);
+                    AddToQueue(4, skillname);
                     break;
                 default:
                     break;
             }
         }
     }
-    
+
+    private void AddToQueue(int skillSpriteNumber, SkillsNames skillname)
+    {
+        skillsQueue.Enqueue(skillname);
+        showSkills[skillsQueue.Count - 1].GetComponent<Image>().sprite = skillSprites[skillSpriteNumber];
+    }
+
     public void useSkill()
     {
         // if (PlayerBall.isMove)
@@ -282,5 +290,13 @@ public class Skills : MonoBehaviour
     {
         yield return new WaitForSeconds(releaseTime);
         AnimStar(i, stars);
+    }
+
+    private void InitProfileSkills()
+    {
+        foreach(SkillsNames name in GameManager.Instance.state.skillsOnStart)
+        {
+            addSkill(name);
+        }
     }
 }

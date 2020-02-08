@@ -14,7 +14,7 @@ public class SkillSelect : MonoBehaviour
 
     private int queueValue = 0;
     [SerializeField]
-    private SkillsNames[] skillList = new SkillsNames[3] { SkillsNames.Blank, SkillsNames.Blank, SkillsNames.Blank };
+    //private SkillsNames[] skillList = new SkillsNames[3] { SkillsNames.Blank, SkillsNames.Blank, SkillsNames.Blank };
     private Vector3 scaleSprite = new Vector3(0.9f, 0.9f);
     public Color32 baseColor = new Color32(255, 255, 255, 50);
     public Color32 activeColor = new Color32(20, 250, 0, 100);
@@ -26,6 +26,7 @@ public class SkillSelect : MonoBehaviour
         // TODO requirements
 
         InitSkillsButtons();
+        InitLoadSkills();
     }
 
     private void InitSkillsButtons()
@@ -47,6 +48,23 @@ public class SkillSelect : MonoBehaviour
         }
     }
 
+    private void InitLoadSkills()
+    {
+        skillListPanel.transform.GetChild(0).GetComponent<Image>().color = activeColor;
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (Sprite sprite in spriteSkill)
+            {
+                if (sprite.name == GameManager.Instance.state.skillsOnStart[i].ToString())
+                {
+                    skillListPanel.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = sprite;
+                    break;
+                }
+            }
+        }
+        
+    }
+
     public void SetSkillPostion(int vlaue)
     {
         skillListPanel.transform.GetChild(queueValue).GetComponent<Image>().color = baseColor;
@@ -56,7 +74,7 @@ public class SkillSelect : MonoBehaviour
 
     public void SetSkillToQueue(SkillsNames skillname, Sprite sprite)
     {
-       skillList[queueValue] = skillname;
+       GameManager.Instance.state.skillsOnStart[queueValue] = skillname;
        skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<Image>().sprite = sprite;
        skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<RectTransform>().localScale = scaleSprite;
     }

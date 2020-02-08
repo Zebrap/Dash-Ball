@@ -224,4 +224,10 @@ public class Menu : MonoBehaviour
         Back(menu);
         gameObject.GetComponent<Options>().SaveOptions();
     }
+
+    public void SaveProfileAndBack(GameObject menu)
+    {
+        Back(menu);
+        GameManager.Instance.Save();
+    }
 }

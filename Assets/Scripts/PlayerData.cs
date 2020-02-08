@@ -8,6 +8,7 @@ public class PlayerData
     public int cash;
     public int skinOwned = 1;
     public int activeSkin = 0;
+    public SkillsNames[] skillsOnStart;
 
     public PlayerData()
     {
@@ -16,6 +17,7 @@ public class PlayerData
         cash = 0;
         skinOwned = 1;
         activeSkin = 0;
+        skillsOnStart = new SkillsNames[3] { SkillsNames.Blank, SkillsNames.Blank, SkillsNames.Blank };
     }
 
 }
