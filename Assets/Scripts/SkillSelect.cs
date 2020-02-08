@@ -15,16 +15,26 @@ public class SkillSelect : MonoBehaviour
     private int queueValue = 0;
     [SerializeField]
     private SkillsNames[] skillList = new SkillsNames[3] { SkillsNames.Blank, SkillsNames.Blank, SkillsNames.Blank };
+    private Vector3 scaleSprite = new Vector3(0.9f, 0.9f);
+    public Color32 baseColor = new Color32(255, 255, 255, 50);
+    public Color32 activeColor = new Color32(20, 250, 0, 100);
 
     void Start()
     {
+
         // TODO load from profil skill list
         // TODO requirements
 
+        InitSkillsButtons();
+    }
+
+    private void InitSkillsButtons()
+    {
         foreach (Sprite sprite in spriteSkill)
         {
             Button button = Instantiate(buttonSkill) as Button;
-            button.image.sprite = sprite;
+            button.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
+            //   button.image.sprite = sprite;
             if (Enum.TryParse(sprite.name, out SkillsNames result))
             {
                 button.onClick.AddListener(() => SetSkillToQueue(result, sprite));
@@ -36,20 +46,18 @@ public class SkillSelect : MonoBehaviour
             button.transform.SetParent(skillsContainer.transform);
         }
     }
-    
-    void Update()
-    {
-        
-    }
 
     public void SetSkillPostion(int vlaue)
     {
+        skillListPanel.transform.GetChild(queueValue).GetComponent<Image>().color = baseColor;
         queueValue = vlaue;
+        skillListPanel.transform.GetChild(vlaue).GetComponent<Image>().color = activeColor;
     }
 
     public void SetSkillToQueue(SkillsNames skillname, Sprite sprite)
     {
        skillList[queueValue] = skillname;
-        skillListPanel.transform.GetChild(queueValue).GetComponent<Image>().sprite = sprite;
+       skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<Image>().sprite = sprite;
+       skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<RectTransform>().localScale = scaleSprite;
     }
 }
