@@ -9,5 +9,6 @@ public enum SkillsNames
     Stone,
     Fly,
     SmallSize,
-    Power
+    Power,
+    Blank
 }
