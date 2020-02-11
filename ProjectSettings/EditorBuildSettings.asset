@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Levels/0_TFreez0.unity
+    guid: d47179f9d9071184e97d6b76248ad81f
+  - enabled: 1
+    path: Assets/Scenes/Levels/0_TFreez1.unity
+    guid: 158eb8b2afd35a84491fb28c7ac1cb0c
+  - enabled: 1
+    path: Assets/Scenes/Levels/0_TFreez2.unity
+    guid: 29f0976cc4ad762499b59d56bdbda12f
+  - enabled: 1
     path: Assets/Scenes/Levels/0_Freez.unity
     guid: 112ec3373f7871a40ad354c16c030652
   - enabled: 1
@@ -44,10 +53,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/10_.unity
     guid: 318c048b53aa7ed42bacea4f312236d3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Cave1.unity
     guid: bebacec88ae3c2445b22f77d331d8eb0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/Cave2.unity
     guid: 4dee940d92eb14e40a797eff4093ea96
   m_configObjects: {}
