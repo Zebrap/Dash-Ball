@@ -12,22 +12,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Levels/0_TFreez0.unity
+    path: Assets/Scenes/Levels/0_0T_Freeze.unity
     guid: d47179f9d9071184e97d6b76248ad81f
   - enabled: 1
-    path: Assets/Scenes/Levels/0_TFreez1.unity
+    path: Assets/Scenes/Levels/0_1T_Freeze.unity
     guid: 158eb8b2afd35a84491fb28c7ac1cb0c
   - enabled: 1
-    path: Assets/Scenes/Levels/0_TFreez2.unity
+    path: Assets/Scenes/Levels/0_2T_Freeze.unity
     guid: 29f0976cc4ad762499b59d56bdbda12f
   - enabled: 1
-    path: Assets/Scenes/Levels/1_Freez.unity
+    path: Assets/Scenes/Levels/1_Freeze.unity
     guid: 112ec3373f7871a40ad354c16c030652
   - enabled: 1
-    path: Assets/Scenes/Levels/1_Freez1.unity
+    path: Assets/Scenes/Levels/1_Freeze1.unity
     guid: 9a1cbaab182ec3e47b0f3b63361efeca
   - enabled: 1
-    path: Assets/Scenes/Levels/1_TFly0.unity
+    path: Assets/Scenes/Levels/2_0T_Fly.unity
     guid: 7a29a6960242a5948a168e41470dbe5f
   - enabled: 1
     path: Assets/Scenes/Levels/2_Fly.unity
@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/3_Fly.unity
     guid: aa91a38b64beb624482bd51b033f4ac0
+  - enabled: 1
+    path: Assets/Scenes/Levels/4_0T_Stone.unity
+    guid: 3e5404823e1a4d946b038127b1202927
   - enabled: 1
     path: Assets/Scenes/Levels/4_Stone.unity
     guid: 00ce85f39b5fcbf49855f30e9d41ae8c

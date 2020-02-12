@@ -10,6 +10,7 @@ public class TutorialSkills : MonoBehaviour
     private bool changeText = true;
     public GameObject tutorialPanel;
     public Sprite useButtonSprite;
+    public string tipsTekst;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class TutorialSkills : MonoBehaviour
         if(startSprite != skillPanel.transform.GetChild(0).GetComponent<Image>().sprite && changeText)
         {
             Debug.Log("Change");
-            tutorialPanel.transform.GetChild(0).GetComponent<Text>().text = "You can use skills during the flight by click the button:";
+            tutorialPanel.transform.GetChild(0).GetComponent<Text>().text = tipsTekst; // "You can use skills during the flight by click the button:";
             tutorialPanel.transform.GetChild(1).GetComponent<Image>().sprite = useButtonSprite;
             changeText = false;
         }
