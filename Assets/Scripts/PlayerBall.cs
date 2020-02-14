@@ -8,7 +8,7 @@ public class PlayerBall : MonoBehaviour
     public Rigidbody2D hook;
     public Text readyText;
     
-    public float releaseTime = .17f;
+    public float releaseDragTime = .18f;
     public float maxDragDistance = 2f;
     public float activeColierRange = 0.2f;
 
@@ -40,7 +40,7 @@ public class PlayerBall : MonoBehaviour
     private float windGravScale = 0.3f;
     private float stoneMass = 20.0f;
 
-    private float flyGrav = -0.1f;
+    private float flyGrav = -0.3f;
     private float flyTimer = 2.0f;
 
     private Vector3 baseScale;
@@ -201,7 +201,7 @@ public class PlayerBall : MonoBehaviour
     IEnumerator Release()
     {
         circleCol2D.enabled = false;
-        yield return new WaitForSeconds(releaseTime);
+        yield return new WaitForSeconds(releaseDragTime);
 
         springJoint2D.enabled = false;
         // this.enabled = false;
@@ -253,6 +253,11 @@ public class PlayerBall : MonoBehaviour
     public void Fly()
     {
         rb.gravityScale = flyGrav;
+        /*
+        if(rb.velocity.y < 0)
+        {
+            rb.AddForce(new Vector2(0, 1)*(-rb.velocity.y)*10);
+        }*/
         StartCoroutine(FlyTimer());
         SoundManager.instance.PlaySingle(skillsound4);
     }
