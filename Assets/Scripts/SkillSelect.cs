@@ -11,6 +11,7 @@ public class SkillSelect : MonoBehaviour
     public Sprite[] spriteSkill;
     public GameObject skillsContainer;
     public GameObject skillListPanel;
+    public int[] requrementsLevelForSkills = { 0, 5, 10, 15, 40, 45, 50 };
 
     private int queueValue = 0;
     [SerializeField]
@@ -18,6 +19,7 @@ public class SkillSelect : MonoBehaviour
     private Vector3 scaleSprite = new Vector3(0.9f, 0.9f);
     public Color32 baseColor = new Color32(255, 255, 255, 50);
     public Color32 activeColor = new Color32(20, 250, 0, 100);
+    public Color32 transparentUnableSkill = new Color32(255, 255, 255, 40);
 
     void Start()
     {
@@ -31,25 +33,36 @@ public class SkillSelect : MonoBehaviour
 
     private void InitSkillsButtons()
     {
+        int requrementsI = 0;
         foreach (Sprite sprite in spriteSkill)
         {
             Button button = Instantiate(buttonSkill) as Button;
             button.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
-            //   button.image.sprite = sprite;
-            if (Enum.TryParse(sprite.name, out SkillsNames result))
+            if(requrementsLevelForSkills[requrementsI] > GameManager.Instance.state.levelReached)
             {
-                button.onClick.AddListener(() => SetSkillToQueue(result, sprite));
+                button.transform.GetChild(1).GetComponent<Text>().text = "Requires level " + requrementsLevelForSkills[requrementsI];
+                button.transform.GetChild(0).GetComponent<Image>().color = transparentUnableSkill; 
             }
             else
             {
-                button.onClick.AddListener(() => SetSkillToQueue(SkillsNames.Blank, sprite));
+                if (Enum.TryParse(sprite.name, out SkillsNames result))
+                {
+                    button.onClick.AddListener(() => SetSkillToQueue(result, sprite));
+                }
+                else
+                {
+                    button.onClick.AddListener(() => SetSkillToQueue(SkillsNames.Blank, sprite));
+                }
             }
             button.transform.SetParent(skillsContainer.transform);
+            requrementsI++;
         }
     }
 
     private void InitLoadSkills()
     {
+
+
         skillListPanel.transform.GetChild(0).GetComponent<Image>().color = activeColor;
         for (int i = 0; i < 3; i++)
         {
@@ -62,7 +75,6 @@ public class SkillSelect : MonoBehaviour
                 }
             }
         }
-        
     }
 
     public void SetSkillPostion(int vlaue)
