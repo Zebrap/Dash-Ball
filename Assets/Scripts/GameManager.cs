@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level");
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public bool BuySkin(int index, int cost)
     {
         if (state.cash >= cost)

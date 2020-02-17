@@ -230,4 +230,15 @@ public class Menu : MonoBehaviour
         Back(menu);
         GameManager.Instance.Save();
     }
+
+    public void UnlockAllLevels()
+    {
+        for(int i=GameManager.Instance.state.levelReached+1; i <= GameManager.Instance.scenesInBuild.Count; i++)
+        {
+            GameManager.Instance.state.score.Add(0);
+        }
+        GameManager.Instance.state.levelReached = GameManager.Instance.scenesInBuild.Count;
+        GameManager.Instance.Save();
+        GameManager.Instance.LoadScene("Menu");
+    }
 }
