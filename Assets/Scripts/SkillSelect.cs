@@ -11,6 +11,7 @@ public class SkillSelect : MonoBehaviour
     public Sprite[] spriteSkill;
     public GameObject skillsContainer;
     public GameObject skillListPanel;
+    public GameObject buyWindow;
     public int[] requrementsLevelForSkills = { 0, 5, 10, 15, 40, 45, 50 };
 
     private int queueValue = 0;
@@ -61,8 +62,6 @@ public class SkillSelect : MonoBehaviour
 
     private void InitLoadSkills()
     {
-
-
         skillListPanel.transform.GetChild(0).GetComponent<Image>().color = activeColor;
         for (int i = 0; i < 3; i++)
         {
@@ -77,11 +76,18 @@ public class SkillSelect : MonoBehaviour
         }
     }
 
-    public void SetSkillPostion(int vlaue)
+    public void SelectSkillIPosition(int vlaue)
     {
-        skillListPanel.transform.GetChild(queueValue).GetComponent<Image>().color = baseColor;
-        queueValue = vlaue;
-        skillListPanel.transform.GetChild(vlaue).GetComponent<Image>().color = activeColor;
+        if (vlaue>0)
+        {
+            OpenBuyWindow();
+        }
+        else
+        {
+            skillListPanel.transform.GetChild(queueValue).GetComponent<Image>().color = baseColor;
+            queueValue = vlaue;
+            skillListPanel.transform.GetChild(vlaue).GetComponent<Image>().color = activeColor;
+        }
     }
 
     public void SetSkillToQueue(SkillsNames skillname, Sprite sprite)
@@ -89,5 +95,24 @@ public class SkillSelect : MonoBehaviour
        GameManager.Instance.state.skillsOnStart[queueValue] = skillname;
        skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<Image>().sprite = sprite;
        skillListPanel.transform.GetChild(queueValue).GetChild(0).GetComponent<RectTransform>().localScale = scaleSprite;
+    }
+
+    public void OpenBuyWindow()
+    {
+        buyWindow.SetActive(true);
+    }
+
+    public void CloseBuyWindow()
+    {
+        buyWindow.SetActive(false);
+    }
+
+    public void BuyPlaceForSkills()
+    {
+        // check requiremts
+
+        // update state -gold +add place
+
+        // save profile
     }
 }
