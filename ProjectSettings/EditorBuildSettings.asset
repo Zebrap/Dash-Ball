@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/5_Stone.unity
     guid: 3d5b98198ad1fc244861702eb874f9ff
   - enabled: 1
-    path: Assets/Scenes/Levels/6_lowGrav.unity
+    path: Assets/Scenes/Levels/6_T_lowGrav.unity
     guid: f08e628f0a744194ab8fe65ceed88a3c
   - enabled: 1
     path: Assets/Scenes/Levels/7_SnowLow.unity

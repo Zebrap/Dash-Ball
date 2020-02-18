@@ -7869,7 +7869,7 @@ MonoBehaviour:
   buttonSkill: {fileID: 6775920339138843081, guid: a8041e0bb18a2eb4c8dde2142758b190,
     type: 3}
   spriteSkill:
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 5412ff17c002e644daa50a28c0bb8501, type: 3}
   - {fileID: 21300000, guid: 3278c9aa7857dfa4b9f1f77e4217e86f, type: 3}
   - {fileID: 21300000, guid: 7dbd6e8f97c79af44a7626edcf603278, type: 3}
   - {fileID: 21300000, guid: 212667c1483f95843843a3b0033b7222, type: 3}
