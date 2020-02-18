@@ -161,7 +161,7 @@ public class Menu : MonoBehaviour
         else
         {
             // attempt to buy
-            if (GameManager.Instance.BuySkin(currentSelectedSkin, skinsCost[currentSelectedSkin]))
+            if (GameManager.Instance.Buy(skinsCost[currentSelectedSkin]))
             {
                 // Success
                 GameManager.Instance.UnlockSkin(currentSelectedSkin);
@@ -240,5 +240,11 @@ public class Menu : MonoBehaviour
         GameManager.Instance.state.levelReached = GameManager.Instance.scenesInBuild.Count;
         GameManager.Instance.Save();
         GameManager.Instance.LoadScene("Menu");
+    }
+
+    public void AddGold()
+    {
+        GameManager.Instance.state.cash += 5;
+        GameManager.Instance.Save();
     }
 }

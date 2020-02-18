@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
+    /*
     public bool BuySkin(int index, int cost)
     {
         if (state.cash >= cost)
@@ -98,6 +98,19 @@ public class GameManager : MonoBehaviour
             // buy
             state.cash -= cost;
             // Save
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    */
+    public bool Buy(int cost)
+    {
+        if (state.cash >= cost)
+        {
+            state.cash -= cost;
             return true;
         }
         else
