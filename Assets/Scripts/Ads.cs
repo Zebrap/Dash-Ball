@@ -14,7 +14,7 @@ public class Ads : MonoBehaviour
     {
         if (Advertisement.IsReady())
         {
-            Advertisement.Show();
+            Advertisement.Show("", new ShowOptions() { resultCallback = HandleAdResult });
         }
     }
 
