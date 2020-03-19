@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // TODO
-        // preloader loadSave
     }
 
     private void LoadSave() {
@@ -52,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         currentLevel = 0;
         scenesInBuild = new List<string>();
-        for (int i = 2; i < SceneManager.sceneCountInBuildSettings; i++)
+        for (int i = 3; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
             int lastSlash = scenePath.LastIndexOf("/");
