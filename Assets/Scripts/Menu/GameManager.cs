@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        LoadSave();
+    //    LoadSave();
     }
 
     void Start()
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         // TODO
     }
 
-    private void LoadSave() {
+    public void LoadSave() {
         //       SaveGame.Clear();
         if (SaveGame.Exists("PlayerData"))
         {
