@@ -1,4 +1,4 @@
 # Dash-Ball
 
 Made with Unity.
-Free to play 2d game.
+Free to play 2d mobile game.
